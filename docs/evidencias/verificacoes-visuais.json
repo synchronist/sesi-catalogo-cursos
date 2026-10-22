@@ -1,0 +1,36 @@
+{
+  "contrast": [
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(89, 89, 89)",
+      "fontSize": "13px",
+      "ratio": 7,
+      "selector": ".benefit p"
+    },
+    {
+      "background": "rgb(191, 35, 41)",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "16px",
+      "ratio": 6.02,
+      "selector": ".testimonial blockquote"
+    },
+    {
+      "background": "rgb(220, 232, 218)",
+      "color": "rgb(12, 12, 13)",
+      "fontSize": "10px",
+      "ratio": 15.45,
+      "selector": ".category-tag"
+    },
+    {
+      "background": "rgb(33, 5, 0)",
+      "color": "rgb(229, 215, 212)",
+      "fontSize": "13px",
+      "ratio": 13.81,
+      "selector": ".footer-grid p"
+    }
+  ],
+  "duplicateIds": [],
+  "emptyLinks": 0,
+  "h1Count": 1,
+  "imagesWithoutAlt": 0
+}

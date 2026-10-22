@@ -1,0 +1,100 @@
+[
+  {
+    "test": "pesquisa nome completo",
+    "expected": 1,
+    "cards": 1,
+    "result": "1 curso encontrado",
+    "url": "http://127.0.0.1:5173/cursos?busca=Medidas+e+Escalas"
+  },
+  {
+    "test": "pesquisa nome breve",
+    "expected": 1,
+    "cards": 1,
+    "result": "1 curso encontrado",
+    "url": "http://127.0.0.1:5173/cursos?busca=Qu%C3%ADmica+Industrial"
+  },
+  {
+    "test": "categoria individual",
+    "expected": 2,
+    "cards": 2,
+    "result": "2 cursos encontrados",
+    "url": "http://127.0.0.1:5173/cursos?categoria=matematica"
+  },
+  {
+    "test": "modalidade individual",
+    "expected": 3,
+    "cards": 3,
+    "result": "3 cursos encontrados",
+    "url": "http://127.0.0.1:5173/cursos?modalidade=online"
+  },
+  {
+    "test": "status individual",
+    "expected": 1,
+    "cards": 1,
+    "result": "1 curso encontrado",
+    "url": "http://127.0.0.1:5173/cursos?status=encerrado"
+  },
+  {
+    "test": "pesquisa e três filtros",
+    "expected": 1,
+    "cards": 1,
+    "result": "1 curso encontrado",
+    "url": "http://127.0.0.1:5173/cursos?busca=Medidas&categoria=matematica&modalidade=online&status=disponivel"
+  },
+  {
+    "test": "estado vazio",
+    "expected": 0,
+    "cards": 0,
+    "result": "0 cursos encontrados",
+    "url": "http://127.0.0.1:5173/cursos?busca=sem-curso-xyz"
+  },
+  {
+    "test": "limpeza",
+    "busca": "",
+    "categoria": "",
+    "result": "6 cursos encontrados",
+    "url": "http://127.0.0.1:5173/cursos"
+  },
+  {
+    "test": "erro de filtro inválido",
+    "title": "Revise os filtros informados",
+    "url": "http://127.0.0.1:5173/cursos?status=invalido"
+  },
+  {
+    "test": "repetição no erro 400",
+    "title": "Revise os filtros informados",
+    "url": "http://127.0.0.1:5173/cursos?status=invalido"
+  },
+  {
+    "test": "detalhes e expansão por Enter",
+    "expanded": true,
+    "focus": "SUMMARY",
+    "lessons": 4,
+    "modules": 2,
+    "outline": "rgb(0, 95, 204) solid 3px",
+    "url": "http://127.0.0.1:5173/cursos/1"
+  },
+  {
+    "test": "menu móvel aberto e Tab",
+    "expanded": "true",
+    "focus": "Início",
+    "outline": "rgb(0, 95, 204) solid 3px"
+  },
+  {
+    "test": "Escape fecha menu e retorna foco",
+    "expanded": "false",
+    "focus": "Menu ☰"
+  },
+  {
+    "test": "controle de depoimentos sem overflow",
+    "clientWidth": 1206,
+    "nextDisabled": false,
+    "scrollLeft": 0,
+    "scrollWidth": 1206,
+    "viewport": 1440
+  },
+  {
+    "test": "tentativa de observar carregamento após recarga",
+    "loadingObserved": false
+  }
+]

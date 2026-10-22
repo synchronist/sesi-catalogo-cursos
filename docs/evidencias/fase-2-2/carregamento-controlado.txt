@@ -1,0 +1,67 @@
+Browser tab: 9, Title: "Catálogo de cursos | SESI Indústria", URL: "http://127.0.0.1:5174/cursos".
+1 AXWebArea Catálogo de cursos | SESI Indústria, URL: 127.0.0.1:5174/cursos
+	2 container root
+		3 link Description: Ir para o conteúdo, Value: 127.0.0.1:5174/cursos#conteudo
+		4 container
+			5 link Description: SESI Indústria — início, Value: 127.0.0.1:5174/
+			6 container Description: Principal, ID: main-nav
+				7 link Description: Início, Value: 127.0.0.1:5174/
+				8 link Description: Cursos, Value: 127.0.0.1:5174/cursos
+				9 link Description: Sobre, Value: 127.0.0.1:5174/#sobre
+				10 button (disabled) Área do aluno Em demonstração, Help: Área do aluno não disponível nesta demonstração
+					11 text Área do aluno Em demonstração
+		12 container conteudo
+			13 container
+				14 container Caminho
+					15 link Description: Início, Value: 127.0.0.1:5174/
+					16 text Cursos
+				17 text CONHECIMENTO PARA TRANSFORMAR
+				18 heading Encontre seu próximo curso, Value: 1
+					19 text Encontre seu próximo curso
+				20 text Aprenda no seu ritmo. Explore novas possibilidades para crescer na indústria.
+			21 container Catálogo de cursos
+				22 container Pesquisar e filtrar cursos
+					23 text O que você quer aprender?
+					24 search text field (settable) O que você quer aprender?, ID: busca
+					25 text Categoria
+					26 pop up button (disabled, collapsed, settable) Categoria, Value: Todas as categorias, ID: categoria, Secondary Actions: Expand
+						27 menu
+							28 (disabled) Todas as categorias
+					29 text Modalidade
+					30 pop up button (disabled, collapsed, settable) Modalidade, Value: Todas as modalidades, ID: modalidade, Secondary Actions: Expand
+						31 menu
+							32 (disabled) Todas as modalidades
+					33 text Status
+					34 pop up button (disabled, collapsed, settable) Status, Value: Todos os status, ID: status, Secondary Actions: Expand
+						35 menu
+							36 (disabled) Todos os status
+					37 button Buscar cursos
+					38 text Carregando opções de filtro…
+				39 text Consultando o catálogo…
+				40 button (disabled) Limpar filtros 
+				41 container
+					42 heading Resultados do catálogo, Value: 2
+						43 text Resultados do catálogo
+					44 text Carregando cursos…
+		45 container
+			46 link Description: SESI Indústria — início, Value: 127.0.0.1:5174/
+			47 text Conhecimento que transforma
+			48 text a indústria e a sua carreira.
+			49 heading NAVEGAÇÃO, Value: 2
+				50 text NAVEGAÇÃO
+			51 link Description: Início, Value: 127.0.0.1:5174/
+			52 link Description: Cursos, Value: 127.0.0.1:5174/cursos
+			53 link Description: Sobre, Value: 127.0.0.1:5174/#sobre
+			54 heading EXPLORE O CATÁLOGO, Value: 2
+				55 text EXPLORE O CATÁLOGO
+			56 link Description: Matemática, Value: 127.0.0.1:5174/cursos?categoria=matematica
+			57 link Description: Ciências da Natureza, Value: 127.0.0.1:5174/cursos?categoria=ciencias-da-natureza
+			58 link Description: Linguagens, Value: 127.0.0.1:5174/cursos?categoria=linguagens
+			59 heading SOBRE ESTA EXPERIÊNCIA, Value: 2
+				60 text SOBRE ESTA EXPERIÊNCIA
+			61 text Projeto demonstrativo para o teste técnico SESI-SP. Cursos e depoimentos fictícios. Sem matrícula ou área do aluno.
+			62 image SESI
+			63 text Catálogo educacional · Demonstração
+			64 container Ícones institucionais ilustrativos, sem links para redes sociais
+
+The focused UI element is 12 container conteudo

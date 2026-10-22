@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/Sesi.Catalogo.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Sesi.Catalogo.Tests.csproj" />
+  </Folder>
+</Solution>

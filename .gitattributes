@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ttf binary
+*.zip binary
+*.pdf binary
+*.docx binary
+# Preservar bytes e espaços originais dos assets e da transcrição de evidência.
+frontend/public/assets/oficiais/** -text
+frontend/public/assets/oficiais/_Font/OFL.txt -whitespace
+docs/evidencias/fase-2-2/carregamento-controlado.txt -whitespace
