@@ -1,0 +1,8 @@
+{
+  "database": "neondb",
+  "categorias": 3,
+  "cursos": 6,
+  "modulos": 12,
+  "aulas": 24,
+  "pg_stat_ssl": false
+}

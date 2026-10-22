@@ -1,0 +1,77 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "contentType": "text/html"
+  },
+  {
+    "path": "/cursos",
+    "status": 200,
+    "contentType": "text/html"
+  },
+  {
+    "path": "/cursos/1",
+    "status": 200,
+    "contentType": "text/html"
+  },
+  {
+    "path": "/health",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "path": "/api/cursos",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "path": "/api/cursos?busca=Medidas&categoria=matematica&modalidade=online&status=disponivel",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "path": "/api/cursos/1",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "path": "/api/cursos?status=invalido",
+    "status": 400,
+    "contentType": "application/problem+json"
+  },
+  {
+    "path": "/api/cursos/999999",
+    "status": 404,
+    "contentType": "application/problem+json"
+  },
+  {
+    "path": "/api/inexistente",
+    "status": 404,
+    "contentType": "application/problem+json"
+  },
+  {
+    "path": "/health/inexistente",
+    "status": 404,
+    "contentType": "application/problem+json"
+  },
+  {
+    "path": "/assets/inexistente.js",
+    "status": 404,
+    "contentType": "application/problem+json"
+  },
+  {
+    "path": "/assets/oficiais/hero-image.png",
+    "status": 200,
+    "contentType": "image/png"
+  },
+  {
+    "path": "/assets/index-Cqxr7USt.js",
+    "status": 200,
+    "contentType": "text/javascript"
+  },
+  {
+    "path": "/assets/index-27eoKa2r.css",
+    "status": 200,
+    "contentType": "text/css"
+  }
+]

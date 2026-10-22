@@ -33,3 +33,6 @@
 **/*.bak
 **/*.tmp
 **/secrets.json
+**/.neon
+**/.neon.*
+**/.neon/

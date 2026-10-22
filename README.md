@@ -2,6 +2,8 @@
 
 Aplicação demonstrativa para o teste técnico de Desenvolvedor de Sistemas I. As fases 1 e 2 implementam persistência PostgreSQL, API de consulta e interface React com Landing Page, catálogo e detalhes. Todo conteúdo dos cursos é fictício. Entrega prevista: 26/10/2026 às 08h, horário de São Paulo.
 
+Estado atual: integração real com Neon validada na Fase 3.4 (22/10/2026), com EF Core/Npgsql e TLS VerifyFull. Publicação no Render ainda não realizada. Os registros das fases anteriores abaixo são históricos; não substituem a validação atual descrita ao final.
+
 ## Tecnologias e arquitetura
 
 - ASP.NET Core Web API, .NET 10 e EF Core 10.0.13; provedor Npgsql 10.0.3.
@@ -231,7 +233,9 @@ Render termina HTTPS e encaminha HTTP ao container. A aplicação não força re
 
 `PORT` tem precedência sobre ASPNETCORE_URLS quando fornecida. `EXPOSE 8080` é apenas metadado do padrão local; a porta efetiva no Render vem de `PORT`. Não sobrescrever o Docker Command: o ENTRYPOINT já inicia a API. Configurar **Health Check Path `/health`** no Render; não há curl nem agente de health adicional na imagem. [Docker no Render](https://render.com/docs/docker), [porta e HTTPS](https://render.com/docs/web-services), [health checks HTTP](https://render.com/docs/health-checks).
 
-### Neon Free — instruções para a próxima rodada, não executadas
+### Neon Free — procedimento preparado na Fase 3.1
+
+Na Fase 3.4 foi integrado o projeto existente informado pelo usuário; não foi criado outro projeto. Os passos abaixo permanecem como referência de preparação de um novo ambiente. O projeto real confirmado usa PostgreSQL 18.6, conforme registro ao final.
 
 1. No console Neon, escolher explicitamente Free, criar projeto dedicado e selecionar PostgreSQL 17 e região próxima ao Render, caso disponíveis. Não fazer upgrade nem habilitar recursos cobrados. Confirmar limites e disponibilidade exibidos antes de criar.
 2. Usar banco exclusivo vazio e role proprietária para migrations. Em **Connect**, selecionar branch/banco/role corretos. Desativar pooling para obter o hostname direto; a aplicação também usará conexão direta nesta solução de uma instância, com pool Npgsql limitado. Pooler poderá ser adotado depois de validado, sem trocar a conexão administrativa.
@@ -243,7 +247,7 @@ Host=<hostname-direto-neon>;Port=5432;Database=<banco>;Username=<role>;Password=
 
 Usar hostname DNS original, não endereço IP, e codificação/quoting Npgsql correta para senhas com caracteres especiais. Não usar `Trust Server Certificate=true`, callbacks de aceitação de certificado ou SSL Disable/Prefer/Require. Para hosts `.neon.tech`, API e fábrica de migrations rejeitam modos diferentes de VerifyFull. O banco local de teste sem TLS é uma exceção restrita a ambiente local, não um exemplo de conexão Neon.
 
-`VerifyFull` valida CA e hostname usando as raízes confiáveis do sistema. Falha de certificado deve ser investigada sem desativar a validação. Nenhuma conexão Neon/TLS real foi efetuada nesta rodada. [TLS no Neon](https://neon.com/docs/connect/connect-securely), [semântica SSL do Npgsql](https://www.npgsql.org/doc/security.html), [conexões diretas/pooling](https://neon.com/docs/connect/connection-pooling).
+`VerifyFull` valida CA e hostname usando as raízes confiáveis do sistema. Falha de certificado deve ser investigada sem desativar a validação. A conexão Neon/TLS real foi validada posteriormente na Fase 3.4. [TLS no Neon](https://neon.com/docs/connect/connect-securely), [semântica SSL do Npgsql](https://www.npgsql.org/doc/security.html), [conexões diretas/pooling](https://neon.com/docs/connect/connection-pooling).
 
 ### Migrations e seed — operação explícita pela máquina local
 
@@ -330,3 +334,78 @@ git push -u origin main
 ```
 
 Não usar force push. Se o remoto já tiver histórico, interromper e revisar sua integração antes de enviar. Nenhum comando de conta externa ou publicação foi executado nesta fase; Neon/Render continuam sem validação externa.
+
+## Fase 3.4 — integração Neon validada em 22/10/2026
+
+Na tentativa inicial, CLI oficial 8.10.3 instalada, mas `neon me` retornou 1; nenhuma operação remota foi feita naquela tentativa. Após autenticação manual pelo usuário, a retomada confirmou autenticação e acesso. Não foram encontradas skills oficiais Neon instaladas nas pastas consultadas; foram usados help da CLI e documentação oficial, sem instalar MCP/integrações globais de agentes.
+
+Destino confirmado pela API Neon: organização `org-noisy-tree-27200340`, plano Free; projeto `empty-tooth-58563543` (`sesi-catalogo-cursos`), região `aws-sa-east-1`; branch `production` / `br-lively-sun-b6s1tndm`; banco `neondb`, PostgreSQL 18.6. Somente PostgreSQL, sem criar projeto/branch/database duplicados ou habilitar outros serviços.
+
+`neon init` foi executado com os IDs confirmados e `--no-agent-setup`. Foram gerados `.neon`, `.env.local`, `neon.ts` e manifests npm na raiz. O plano foi revisado antes de `neon deploy`: somente Postgres, ação noop, sem conflitos/avisos. Deploy concluiu sem alterações de recursos. A política genérica de expiração de novas branches foi retirada do arquivo gerado; o plano final continuou noop. [Plano final](docs/validacao-neon-plano.json).
+
+As dependências npm da raiz (`@neon/config` e `@neon/env`) servem apenas à configuração/CLI; não substituem EF Core nem fazem parte do bundle React ou imagem de produção. Não existe script build na raiz: usar `npm --prefix frontend run build` e `npm --prefix frontend test`.
+
+### Conexão local e reprodução
+
+`.env.local` contém `DATABASE_URL`, `DATABASE_URL_UNPOOLED` e `NEON_BRANCH` fornecidos pela CLI. `.neon` mantém o contexto local. Ambos estão ignorados e não devem ser versionados, impressos ou enviados ao frontend. Não colocar credenciais em appsettings ou em `VITE_*`.
+
+Após login/contexto confirmado e `neon init`/pull do ambiente, usar PowerShell 7:
+
+```powershell
+. ./scripts/Usar-Neon.ps1
+# O script lê somente DATABASE_URL_UNPOOLED, valida contexto/banco,
+# converte URI para Npgsql com quoting e exporta ConnectionStrings__Catalogo.
+# Não imprime ou grava a conexão; força SSL Mode=VerifyFull e pool máximo 10.
+dotnet build backend --configuration Release --no-restore
+dotnet run --project backend --configuration Release --no-build --no-launch-profile --urls http://127.0.0.1:5080
+# Ao encerrar a execução, remover a variável da sessão:
+Remove-Item Env:ConnectionStrings__Catalogo
+```
+
+Migrations continuam explícitas. Antes de reaplicar em qualquer destino, reconfirmar projeto/branch/database e revisar estado/SQL. No banco autorizado, a inspeção encontrou zero tabelas de usuário e nenhum histórico EF. Foi aplicada somente `20261021233255_InitialCatalogo`, que incluiu o seed. Segunda execução de `dotnet ef database update --project backend --configuration Release --no-build` não aplicou mudanças. Não houve EnsureCreated, downgrade, exclusão ou recriação de dados. Contagens remotas: **3 categorias, 6 cursos, 12 módulos e 24 aulas**. [Consulta de contagens](docs/validacao-neon-banco.json).
+
+Teste remoto opcional e explicitamente somente leitura:
+
+```powershell
+. ./scripts/Usar-Neon.ps1
+$env:CATALOGO_NEON_READONLY_CONNECTION = $env:ConnectionStrings__Catalogo
+dotnet test tests --configuration Release --filter Category=NeonReadOnly
+Remove-Item Env:CATALOGO_NEON_READONLY_CONNECTION,Env:ConnectionStrings__Catalogo
+```
+
+Esse teste abre a conexão Npgsql com VerifyFull, confere migration/contagens em transação READ ONLY e faz rollback. **Não usar `CATALOGO_TEST_CONNECTION` com o Neon de produção**: o teste PostgreSQL anterior cria/remove schemas de teste. Para a suíte local sem banco, usar `--filter 'Category!=PostgreSQL&Category!=NeonReadOnly'` (com aspas no PowerShell).
+
+### Evidências e limites desta validação
+
+- Backend Release compilado sem avisos/erros; frontend TypeScript/Vite compilado; oito testes frontend e 24 testes backend sem dependência de PostgreSQL aprovados. Um teste novo NeonReadOnly passou contra o banco remoto, sem modificar registros.
+- Instância temporária ASP.NET Production em 127.0.0.1:5184 serviu o dist React real pelo mesmo domínio. Quinze GETs passaram: health 200/Healthy, seis cursos, pesquisa/filtros combinados (um resultado), detalhes com dois módulos/quatro aulas, SPA e assets/erros. [Resultados HTTP](docs/validacao-neon-http.json).
+- No navegador: Landing com cursos da API; catálogo com seis resultados; busca Medidas/Matemática/Online/Disponível retornou um curso e refletiu URL; detalhes reais e acordeão exibiram quatro aulas. Console consultado sem error/warn. [Catálogo](docs/evidencias/neon/catalogo-neon.jpg), [detalhes](docs/evidencias/neon/detalhes-neon.jpg).
+- A consulta `pg_stat_ssl` da sessão SQL da CLI retornou false; esse valor foi preservado na evidência e não usado para atestar o transporte da aplicação. Npgsql abriu a conexão com VerifyFull, sem callbacks de aceitação de certificado. A CLI e a aplicação são clientes distintos; a topologia interna do provedor não foi auditada.
+- A instância temporária de validação foi encerrada ao fim; conexão local pode ser reproduzida pelo script. Não houve teste de carga, cold start integrado no Render, restauração de backup ou validação TLS a partir da imagem Linux no Render.
+
+Próxima publicação ainda depende de autorização, revisão/versionamento das mudanças locais e configuração Render Free/segredo ConnectionStrings__Catalogo. Neon está validado a partir desta máquina; Render não foi publicado ou testado. Quotas e consumo devem ser acompanhados; nenhum plano pago foi habilitado. Nesta rodada não houve commit ou push.
+
+## Fase 3.5 — revisão para GitHub e Render — 22/10/2026
+
+Alterações Neon revisadas para publicação em `main`, no remoto `https://github.com/synchronist/sesi-catalogo-cursos.git`. O contexto `.neon`, `.env.local`, dependências locais, bin/obj/dist e artifacts permanecem excluídos. `neon.ts`, manifests, script de conexão, teste somente leitura e evidências contêm apenas conteúdo publicável. O script não grava nem imprime a conexão; ela é disponibilizada ao processo por ConnectionStrings__Catalogo.
+
+Foi construída a imagem `sstp-catalogo:render-ready` a partir de uma cópia do stage Git, sem arquivos locais ignorados. Digest observado: `sha256:1978db163b180bc50b548d9933648ca73faadcd1c15c4a18e900605b3c559108`. Build multi-stage aprovado, com cache do frontend e restore/publish backend concluídos. A imagem Linux foi executada localmente, UID 1654, PORT 10000, ligada ao Neon com VerifyFull somente por variável de runtime. Quinze verificações HTTP passaram, incluindo health 200, cursos, pesquisa/filtros, detalhes, SPA e assets. [Evidência](docs/validacao-render-preparo-http.json).
+
+A inspeção confirmou ausência de SDK, node_modules, EF Design, `.env` e `.neon` na imagem, e nenhuma variável de conexão/credencial em sua configuração. Logs consultados sem senha ou conexão completa. Sem migrations/seed no startup, sem neon deploy nesta fase e sem escrita de dados no Neon. Containers temporários encerrados. As suítes já aprovadas na Fase 3.4 não foram repetidas; a validação adicional cobriu a execução Linux com TLS/Neon, antes não comprovada.
+
+Configuração a usar na criação futura do Render, **não executada nesta fase**:
+
+| Campo | Configuração |
+| --- | --- |
+| Repositório | `https://github.com/synchronist/sesi-catalogo-cursos` |
+| Branch | `main` |
+| Tipo / Language | Web Service / Docker |
+| Root Directory | Raiz do repositório; campo vazio |
+| Dockerfile Path / Docker Build Context | `./Dockerfile` / `.` |
+| Instance Type | Free, se disponível à conta |
+| Health Check Path | `/health` |
+| Docker Command / pre-deploy command | Não sobrescrever / não configurar migrations automáticas |
+| Variáveis próprias | `ConnectionStrings__Catalogo` (segredo Npgsql com VerifyFull) e `ASPNETCORE_ENVIRONMENT` |
+| Variável fornecida pela plataforma | `PORT` |
+
+Não configurar VITE_*, DATABASE_URL, NEON_API_KEY ou ASPNETCORE_URLS no serviço. Não usar o build npm da raiz: o Dockerfile constrói frontend/ e backend/. A conexão validada deve ser cadastrada de modo privado no painel, sem ser copiada para arquivos versionados, argumentos de build ou frontend. Publicação e verificações efetivas na infraestrutura Render continuam pendentes de uma rodada autorizada. Fonte dos campos: [Docker](https://render.com/docs/docker), [Web Service/PORT](https://render.com/docs/web-services), [health](https://render.com/docs/health-checks).

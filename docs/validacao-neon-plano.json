@@ -1,0 +1,19 @@
+{
+  "projectId": "empty-tooth-58563543",
+  "branchId": "br-lively-sun-b6s1tndm",
+  "branchName": "production",
+  "orgId": "org-noisy-tree-27200340",
+  "dryRun": true,
+  "services": [
+    "Postgres"
+  ],
+  "applied": [
+    {
+      "kind": "branch",
+      "action": "noop",
+      "identifier": "production"
+    }
+  ],
+  "conflicts": [],
+  "warnings": []
+}

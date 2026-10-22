@@ -1,0 +1,27 @@
+Browser tab: 10, Title: "Detalhes do curso | SESI Indústria", URL: "http://127.0.0.1:5184/cursos/1".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 179-180
++				227 container
++					228 button (expanded) Módulos e aulas, Secondary Actions: Collapse
++						229 text Módulos e aulas
++					230 heading 1. Unidades e escalas, Value: 3
++						231 text 1 .  Unidades e escalas
++					232 text Estudo de unidades e escalas no contexto de medição de peças e interpretação de escalas.
++					233 content list
++						234 container
++							235 AXListMarker 1. 
++							236 text Unidades e escalas: conceitos essenciais Identifique os conceitos de unidades e escalas e relacione-os a medição de peças e interpretação de escalas.
++						237 container
++							238 AXListMarker 2. 
++							239 text Unidades e escalas: situação prática Analise um caso fictício de medição de peças e interpretação de escalas, registre sua solução e explique os critérios utilizados.
++					240 heading 2. Medição no chão de fábrica, Value: 3
++						241 text 2 .  Medição no chão de fábrica
++					242 text Estudo de medição no chão de fábrica no contexto de medição de peças e interpretação de escalas.
++					243 content list
++						244 container
++							245 AXListMarker 1. 
++							246 text Medição no chão de fábrica: conceitos essenciais Identifique os conceitos de medição no chão de fábrica e relacione-os a medição de peças e interpretação de escalas.
++						247 container
++							248 AXListMarker 2. 
++							249 text Medição no chão de fábrica: situação prática Analise um caso fictício de medição de peças e interpretação de escalas, registre sua solução e explique os critérios utilizados.
+The focused UI element is 228 button (expanded) Módulos e aulas, Secondary Actions: Collapse
