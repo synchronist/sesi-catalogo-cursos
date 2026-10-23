@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "brokenImages": [],
+      "cards": 6,
+      "documentWidth": 1425,
+      "fontsLoaded": true,
+      "page": "landing",
+      "protocol": "https:",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "cards": 6,
+      "documentWidth": 1425,
+      "fontsLoaded": true,
+      "page": "catalogo",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 1425,
+      "fontsLoaded": true,
+      "page": "detalhes",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "documentWidth": 375,
+      "fontsLoaded": true,
+      "page": "detalhes",
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "cards": 6,
+      "documentWidth": 375,
+      "fontsLoaded": true,
+      "page": "catalogo",
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "cards": 6,
+      "documentWidth": 375,
+      "fontsLoaded": true,
+      "page": "landing",
+      "scrollWidth": 375,
+      "width": 390,
+      "pendingImages": []
+    }
+  ],
+  "domResources": {
+    "failed": [],
+    "fontFamily": "\"Open Sans\", Arial, sans-serif",
+    "fontsLoaded": true,
+    "nonHttpsElements": [],
+    "pageProtocol": "https:",
+    "pending": []
+  },
+  "console": [],
+  "lazyImagesAfterCarousel": {
+    "failed": 0,
+    "pending": 0
+  },
+  "networkLimitation": "Resource Timing indisponível na ferramenta; endpoints e recursos verificados por HTTP externo. Console é amostra, não HAR completo."
+}

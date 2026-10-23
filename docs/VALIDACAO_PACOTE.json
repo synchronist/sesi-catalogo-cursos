@@ -1,0 +1,12 @@
+{
+  "files": 89,
+  "manifest_entries": 87,
+  "checksum_entries": 88,
+  "zip_bytes": 16158146,
+  "zip_sha256": "d03a9b091008971a4469072e7c7c647b315cf00ee5e50b941849c035c4f22ce9",
+  "crc": "OK",
+  "checksums": "OK",
+  "extraction": "OK",
+  "security": "sem ocorrências nos padrões/valores privados conhecidos; não é auditoria exaustiva",
+  "private_values_checked": true
+}

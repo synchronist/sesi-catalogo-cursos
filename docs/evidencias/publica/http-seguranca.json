@@ -1,0 +1,140 @@
+{
+  "url": "https://sesi-catalogo-cursos.onrender.com",
+  "observed_at": "2026-10-22T22:37:22.129029+00:00",
+  "initial_observation": {
+    "path": "/health",
+    "status": 503,
+    "title": "Banco indisponível",
+    "elapsed_seconds": 7.25,
+    "cause": "Não determinada; chamadas posteriores recuperaram sem intervenção"
+  },
+  "http_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "type": "text/html",
+      "elapsed_seconds": 0.62
+    },
+    {
+      "path": "/health",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 1.52,
+      "body": {
+        "status": "Healthy"
+      }
+    },
+    {
+      "path": "/api/cursos",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.3,
+      "total": 6
+    },
+    {
+      "path": "/api/catalogo/filtros",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.3
+    },
+    {
+      "path": "/api/cursos/1",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.55,
+      "modules": 2,
+      "lessons": 4
+    },
+    {
+      "path": "/api/cursos?busca=Medidas",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.3,
+      "total": 1
+    },
+    {
+      "path": "/api/cursos?categoria=matematica",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.41,
+      "total": 2
+    },
+    {
+      "path": "/api/cursos?modalidade=online",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.58,
+      "total": 3
+    },
+    {
+      "path": "/api/cursos?status=disponivel",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.55,
+      "total": 3
+    },
+    {
+      "path": "/api/cursos?busca=Medidas&categoria=matematica&modalidade=online&status=disponivel",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.45,
+      "total": 1
+    },
+    {
+      "path": "/api/cursos?busca=zzzz-sem-curso",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "elapsed_seconds": 0.69,
+      "total": 0
+    },
+    {
+      "path": "/api/cursos?status=invalido",
+      "status": 400,
+      "type": "application/problem+json",
+      "elapsed_seconds": 0.19
+    },
+    {
+      "path": "/.env",
+      "status": 404,
+      "type": "application/problem+json",
+      "elapsed_seconds": 0.52
+    },
+    {
+      "path": "/.env.local",
+      "status": 404,
+      "type": "application/problem+json",
+      "elapsed_seconds": 0.19
+    },
+    {
+      "path": "/.neon",
+      "status": 404,
+      "type": "application/problem+json",
+      "elapsed_seconds": 0.44
+    },
+    {
+      "path": "/appsettings.json",
+      "status": 404,
+      "type": "application/problem+json",
+      "elapsed_seconds": 0.45
+    },
+    {
+      "path": "/assets/index-Cqxr7USt.js",
+      "status": 200,
+      "type": "text/javascript",
+      "elapsed_seconds": 0.48,
+      "sha256": "1b1699bd2e644c0bfec75f0f7457294b5321ff847e3ae25b7fa1b41832565b4f",
+      "matches_local_dist": true,
+      "contains_localhost_url": false
+    },
+    {
+      "path": "/assets/index-27eoKa2r.css",
+      "status": 200,
+      "type": "text/css",
+      "elapsed_seconds": 0.19,
+      "sha256": "baef6c0d92bb5ce031f8918da7528be2eca1d0476d8cb187116b9fa30c2b32d8",
+      "matches_local_dist": true
+    }
+  ],
+  "secret_findings": [],
+  "secret_scan_scope": "HTML, JS, CSS e respostas consultadas; padrões e valores locais conhecidos; não é auditoria completa"
+}

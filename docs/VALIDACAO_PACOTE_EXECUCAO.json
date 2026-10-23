@@ -1,0 +1,11 @@
+{
+  "image": "mcr.microsoft.com/dotnet/aspnet:10.0",
+  "user": "1654:1654",
+  "readOnlyRoot": true,
+  "readOnlyPackage": true,
+  "runtimeCommand": "dotnet Sesi.Catalogo.Api.dll",
+  "database": "PostgreSQL local de desenvolvimento, sem Neon",
+  "databaseSessions": "Options=-c default_transaction_read_only=on",
+  "credentialMatchInLogs": false,
+  "getChecks": 15
+}

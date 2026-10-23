@@ -1,0 +1,27 @@
+[
+  {
+    "Path": "/assets/oficiais/hero-image.png",
+    "Status": 200,
+    "Type": "image/png"
+  },
+  {
+    "Path": "/assets/oficiais/banner-ava.png",
+    "Status": 200,
+    "Type": "image/png"
+  },
+  {
+    "Path": "/assets/oficiais/video-thumb.png",
+    "Status": 200,
+    "Type": "image/png"
+  },
+  {
+    "Path": "/assets/oficiais/logo-sesi-industria-primary.svg",
+    "Status": 200,
+    "Type": "image/svg+xml"
+  },
+  {
+    "Path": "/assets/oficiais/_Font/OpenSans-VariableFont_wdth,wght.ttf",
+    "Status": 200,
+    "Type": "application/x-font-ttf"
+  }
+]

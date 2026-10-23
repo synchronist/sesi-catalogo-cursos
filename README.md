@@ -2,7 +2,7 @@
 
 Aplicação demonstrativa para o teste técnico de Desenvolvedor de Sistemas I. As fases 1 e 2 implementam persistência PostgreSQL, API de consulta e interface React com Landing Page, catálogo e detalhes. Todo conteúdo dos cursos é fictício. Entrega prevista: 26/10/2026 às 08h, horário de São Paulo.
 
-Estado atual: integração real com Neon validada na Fase 3.4 (22/10/2026), com EF Core/Npgsql e TLS VerifyFull. Publicação no Render ainda não realizada. Os registros das fases anteriores abaixo são históricos; não substituem a validação atual descrita ao final.
+Estado atual (23/10/2026): aplicação publicada em https://sesi-catalogo-cursos.onrender.com, com PostgreSQL Neon e TLS VerifyFull. Repositório: https://github.com/synchronist/sesi-catalogo-cursos. Homologação e ressalvas em [docs/HOMOLOGACAO_PUBLICA.md](docs/HOMOLOGACAO_PUBLICA.md). Revisão funcional e fonte do pacote: 29e997bbf597f84a2f4e8061dbfd36d5a4e8d25c; commits posteriores de finalização acrescentam somente documentação, evidências, scripts de entrega e exclusões Git. Dashboard Render informado pelo usuário mostrou 29e997b como Live, sem verificação automatizada do SHA do backend. O 503 inicial recuperou sem intervenção, mas sua causa permanece não confirmada. Pacote final e relação de publicação descritos em [ENTREGAVEIS.md](ENTREGAVEIS.md). Os registros das fases anteriores abaixo são históricos.
 
 ## Tecnologias e arquitetura
 
@@ -409,3 +409,31 @@ Configuração a usar na criação futura do Render, **não executada nesta fase
 | Variável fornecida pela plataforma | `PORT` |
 
 Não configurar VITE_*, DATABASE_URL, NEON_API_KEY ou ASPNETCORE_URLS no serviço. Não usar o build npm da raiz: o Dockerfile constrói frontend/ e backend/. A conexão validada deve ser cadastrada de modo privado no painel, sem ser copiada para arquivos versionados, argumentos de build ou frontend. Publicação e verificações efetivas na infraestrutura Render continuam pendentes de uma rodada autorizada. Fonte dos campos: [Docker](https://render.com/docs/docker), [Web Service/PORT](https://render.com/docs/web-services), [health](https://render.com/docs/health-checks).
+
+## Fase 4 — pacote de publicação e auditoria final
+
+Inventário: [ENTREGAVEIS.md](ENTREGAVEIS.md). Matriz do enunciado: [docs/MATRIZ_CONFORMIDADE.md](docs/MATRIZ_CONFORMIDADE.md). Limitações consolidadas: [docs/LIMITACOES_ENTREGA.md](docs/LIMITACOES_ENTREGA.md). Instruções Linux: [docs/EXECUCAO_PACOTE.md](docs/EXECUCAO_PACOTE.md). Resultado final e limites das verificações desta rodada: [docs/VALIDACAO_PACOTE.md](docs/VALIDACAO_PACOTE.md).
+
+O pacote `entregaveis/sesi-catalogo-publicacao-linux-x64.zip` contém publish Release para linux-x64, framework-dependent (ASP.NET Core Runtime 10/glibc), React compilado em wwwroot, instruções, referências das migrations e documentação. Não é imagem Docker nem contém SDK, Node ou runtime autocontido. A geração não usa credenciais de banco. Backend e frontend não tiveram mudanças funcionais desde 29e997b.
+
+Para reproduzir com PowerShell 7, .NET SDK 10, Node e Python 3 disponíveis:
+
+```powershell
+npm --prefix frontend ci
+./scripts/Empacotar-Publicacao.ps1 -OutputDirectory entregaveis-nova-geracao
+python scripts/Verificar-Pacote.py --package entregaveis-nova-geracao/sesi-catalogo-publicacao-linux-x64 --zip entregaveis-nova-geracao/sesi-catalogo-publicacao-linux-x64.zip --create --extract entregaveis-nova-geracao/verificacao-linux-x64
+```
+
+Os dois últimos comandos (com a pasta padrão entregaveis e o Python disponível nesta máquina) são o procedimento desta geração. `npm ci` não foi repetido nesta fase: dependências existentes já estavam instaladas. Em outra máquina ele é pré-requisito. Opcionalmente, `--private-env CAMINHO_LOCAL` permite ao verificador comparar valores privados conhecidos sem os imprimir, além dos padrões de token/chave. Sem essa opção ele não conhece credenciais locais. Nenhum scanner dirigido garante ausência absoluta de segredos.
+
+MANIFESTO.csv relaciona todos os arquivos de conteúdo, tamanhos e SHA-256. SHA256SUMS inclui também o manifesto, excluindo somente a si próprio. O checksum do ZIP está no arquivo externo .zip.sha256. O verificador confere CRC, igualdade de conteúdo, inventário completo, hashes e extração segura. Não alterar arquivos depois de gerar hashes; uma nova geração deve usar pasta vazia e ser auditada novamente. O script não sobrescreve ZIP nem pasta de saída existentes.
+
+`entregaveis/` permanece ignorada no Git por conter artefatos binários gerados. Distribuir ZIP e checksum separadamente. Documentação e scripts finais devem ser revisados/versionados após autorização; esta fase não executa commit, push ou deploy. O README/registro de IA dentro do pacote são cópias documentais no momento do empacotamento; os resultados posteriores da verificação do ZIP ficam nos relatórios finais do repositório.
+
+## Fase 5 — finalização documental e distribuição proposta
+
+Documentação, evidências públicas e scripts de empacotamento integram a finalização documental em main, autorizada nesta fase. O histórico Git identifica o commit documental; ele não substitui a revisão funcional 29e997b nem comprova uma nova versão executada no Render. Não houve alteração React/API/migrations, novo build ou comando de deploy. Registro de uso de IA e resultados anteriores foram preservados sem afirmar testes adicionais.
+
+ZIP existente reconferido por CRC, conteúdo, manifesto e SHA-256, sem recriação: 16.158.146 bytes, hash `d03a9b091008971a4469072e7c7c647b315cf00ee5e50b941849c035c4f22ce9`. Documentação interna é o snapshot da Fase 4, com essa distinção explícita; resultados finais e procedimentos atualizados ficam no repositório. Links públicos GitHub e Render retornaram 200 nesta fase, sem repetir a homologação completa.
+
+GitHub Release **ainda não criado ou publicado**, ZIP não enviado. Proposta e passos exatos em [docs/PROPOSTA_RELEASE.md](docs/PROPOSTA_RELEASE.md). A publicação desse artefato depende de nova autorização; depois restará o envio formal ao SESI. Ressalvas de disponibilidade, uso demonstrativo e imagens oficiais permanecem em [docs/LIMITACOES_ENTREGA.md](docs/LIMITACOES_ENTREGA.md).

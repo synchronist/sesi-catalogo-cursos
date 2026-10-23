@@ -1,0 +1,21 @@
+{
+  "date_local": "2026-10-22",
+  "timezone": "America/Sao_Paulo",
+  "public_url": "https://sesi-catalogo-cursos.onrender.com",
+  "http_status": 301,
+  "http_redirect_to": "https://sesi-catalogo-cursos.onrender.com/",
+  "github_main_sha": "29e997bbf597f84a2f4e8061dbfd36d5a4e8d25c",
+  "local_main_sha": "29e997bbf597f84a2f4e8061dbfd36d5a4e8d25c",
+  "github_deployments_count": 0,
+  "github_statuses_count": 0,
+  "github_check_runs_count": 0,
+  "render_active_deploy_sha": null,
+  "render_sha_verification": "Não verificado: SHA não exposto publicamente e Dashboard autenticado não disponível.",
+  "frontend_js_css_match_local_dist": true,
+  "frontend_match_proves_backend_commit": false,
+  "existing_public_smoke_script": {
+    "script": "scripts/Test-Publicacao.ps1",
+    "checks_passed": 15,
+    "checks_total": 15
+  }
+}

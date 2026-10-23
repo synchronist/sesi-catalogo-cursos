@@ -13,6 +13,8 @@ TestResults/
 *.pdf
 *.docx
 artifacts/
+entregaveis/
+entregaveis-*/
 **/*.dump
 **/*.backup
 **/*.pfx
