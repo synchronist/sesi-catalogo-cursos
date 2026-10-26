@@ -124,3 +124,11 @@ ZIP real de publicação Linux x64 gerado, com React em wwwroot, manifesto e che
 ## Finalização documental — Fase 5, 23/10/2026
 
 Documentação e evidências incluídas na finalização autorizada de main; os estados “ainda local/pendente” das seções anteriores retratam suas respectivas datas/fases. Revisão funcional 29e997b preservada. Links GitHub e aplicação pública responderam HTTP 200 nesta rodada; não foram repetidos os testes funcionais/visuais completos. CRC, manifesto e checksums do ZIP reconferidos sem recriação. Não houve nova investigação dos logs Render ou atribuição de causa ao 503. A confirmação humana anterior do Dashboard não se converte em verificação automatizada do SHA do backend. Release/upload do pacote permanece somente proposto, sem execução; envio formal ao SESI pendente.
+
+## Resultado observado em 26/10/2026
+
+Commit funcional 2c1a823c0a5f2acaaa729b89de9fa6c7239f7d1a publicado na main e confirmado Live pelo Dashboard Render (Auto-Deploy, 51,5s). Migrations AlignFeaturedCoursesWithFigma, AlignOfficialCourseImages e AlignMetalurgiaSyllabusWithFigma aplicadas após disponibilização dos assets. Histórico com quatro migrations; Neon production/neondb: 3 categorias, 6 cursos, 20 módulos e 50 aulas. Teste Neon somente leitura aprovado (1), somado a 24 testes backend e 35 frontend aprovados. Build frontend aprovado.
+
+A suíte HTTP pública foi interrompida no health por status/content-type inesperado; não se declara 17 verificações aprovadas. Conferência posterior: /health 200 com {"status":"Healthy"}; /api/cursos confirmou total 6. Causa da falha transitória não confirmada, sem atribuição automática a cold start. Rotas SPA anteriores ao health responderam conforme esperado. Demais verificações finais da suíte não concluídas nesta rodada. Homologações anteriores permanecem evidências históricas, sem nova alegação de execução.
+
+Pacote final será identificado por PUBLICACAO.json e checksum externo em entregaveis/final-2026-10-26/. Validação efetiva do pacote deve ser consultada no resultado do script e relatório final; o pacote antigo não é a entrega final. Nenhum e-mail/submissão ou Release público enviado.
