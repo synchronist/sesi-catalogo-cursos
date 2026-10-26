@@ -1,0 +1,47 @@
+[
+  {
+    "file": "medicao-metalurgia.png",
+    "score": 0.6712,
+    "scale": 1.22,
+    "image_width": 593,
+    "image_height": 395,
+    "crop_left": 159,
+    "crop_top": 0
+  },
+  {
+    "file": "industria-textil.jpg",
+    "score": 0.7796,
+    "scale": 1.96,
+    "image_width": 1004,
+    "image_height": 670,
+    "crop_left": 482,
+    "crop_top": 261
+  },
+  {
+    "file": "controle-producao.jpg",
+    "score": 0.7921,
+    "scale": 1.56,
+    "image_width": 799,
+    "image_height": 534,
+    "crop_left": 282,
+    "crop_top": 136
+  },
+  {
+    "file": "soldagem-industrial.jpg",
+    "score": 0.8152,
+    "scale": 1.74,
+    "image_width": 891,
+    "image_height": 595,
+    "crop_left": 184,
+    "crop_top": 197
+  },
+  {
+    "file": "laboratorio-quimico.jpg",
+    "score": 0.7013,
+    "scale": 2.18,
+    "image_width": 1116,
+    "image_height": 746,
+    "crop_left": 246,
+    "crop_top": 347
+  }
+]

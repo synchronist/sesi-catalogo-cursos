@@ -1,22 +1,26 @@
-import { useRef } from "react";
 import { catalogoApi } from "../api/catalogo";
 import {
-  Arrow,
   Benefits,
   CallToAction,
   CourseCard,
   ErrorState,
   Loading,
   Testimonials,
+  asset,
 } from "../components";
 import { Link } from "../navigation";
 import { useResource } from "../useResource";
+import { courseSectionHref, courseSectionId } from "../courseAnchor";
+import { useCourseCarousel } from "../useCourseCarousel";
+import { featuredOrder } from "../featuredPresentation";
 
 export function Home() {
   const { result, retry } = useResource("home-cursos", (signal) =>
     catalogoApi.listar({}, signal),
   );
-  const rail = useRef<HTMLDivElement>(null);
+  const { rail, bounds, move } = useCourseCarousel(
+    result.state === "success" ? result.data.items.length : 0,
+  );
   return (
     <>
       <section className="hero">
@@ -32,12 +36,14 @@ export function Home() {
             Amplie seus conhecimentos com excelência na melhor plataforma de
             estudos da indústria brasileira.
           </p>
-          <Link href="/cursos" className="button button-white">
-            Conhecer cursos <Arrow />
+          <Link href={courseSectionHref} className="button button-white">
+            Conhecer cursos <img src={asset("arrow-navigation-1.svg")} alt="" width="24" height="24" />
           </Link>
         </div>
       </section>
       <section
+        id={courseSectionId}
+        tabIndex={-1}
         className="section featured-section"
         aria-labelledby="destaques-title"
       >
@@ -51,13 +57,27 @@ export function Home() {
             (result.data.total ? (
               <div
                 className="featured-rail"
+                id="principais-cursos-trilho"
                 ref={rail}
                 tabIndex={0}
+                role="region"
+                aria-roledescription="carrossel"
                 aria-label="Cursos em destaque"
+                onKeyDown={(event) => {
+                  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+                  const direction = { ArrowLeft: "previous", ArrowRight: "next", Home: "start", End: "end" }[event.key];
+                  if (!direction) return;
+                  event.preventDefault();
+                  move(direction as "previous" | "next" | "start" | "end");
+                }}
               >
-                {result.data.items.map((curso) => (
+                {featuredOrder(result.data.items).map((curso) => (
                   <CourseCard key={curso.id} curso={curso} featured />
                 ))}
+                <Link href="/cursos" className="course-card featured-all-courses">
+                  <span>Todos os cursos</span>
+                  <img src={asset("arrow-navigation-1.svg")} alt="" width="32" height="32" />
+                </Link>
               </div>
             ) : (
               <p className="state-panel" role="status">
@@ -72,15 +92,19 @@ export function Home() {
               <div className="rail-buttons">
                 <button
                   aria-label="Cursos anteriores"
-                  onClick={() => rail.current?.scrollBy({ left: -320 })}
+                  aria-controls="principais-cursos-trilho"
+                  disabled={!bounds.previous}
+                  onClick={() => move("start")}
                 >
-                  ←
+                  <img src={asset("arrow-navigation.svg")} alt="" width="48" height="48" />
                 </button>
                 <button
                   aria-label="Próximos cursos"
-                  onClick={() => rail.current?.scrollBy({ left: 320 })}
+                  aria-controls="principais-cursos-trilho"
+                  disabled={!bounds.next}
+                  onClick={() => move("end")}
                 >
-                  →
+                  <img src={asset("arrow-navigation-1.svg")} alt="" width="48" height="48" />
                 </button>
               </div>
             )}
@@ -103,14 +127,14 @@ export function Home() {
               Resultados que demonstram o sucesso da nossa metodologia de
               capacitação contínua para a indústria.
             </p>
-            <p className="muted small">
+            <p className="sr-only">
               Indicadores ilustrativos do protótipo.
             </p>
           </div>
           <div>
             <dl className="impact-stats">
               <div>
-                <dt>Profissionais capacitados</dt>
+                <dt>Profissionais Capacitados</dt>
                 <dd>25.000+</dd>
               </div>
               <div>

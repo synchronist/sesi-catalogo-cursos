@@ -1,0 +1,96 @@
+{
+  "desktop": [
+    {
+      "body": "Se você está interessado em se aprofundar em Matemática para a Precisão, especialmente em Medidas e Escalas na Metalurgia, aqui estão algumas dicas para maximizar sua experiência online. Primeiro, crie um espaço de estudo livre de distrações, onde você possa se concentrar totalmente no material.",
+      "course": "Matemática para a Precisão: Medidas e Escalas na Metalurgia",
+      "lessons": 33,
+      "modules": 11,
+      "overflow": false,
+      "percent": "",
+      "url": "/ava/1"
+    },
+    {
+      "body": "Se você está interessado em se aprofundar em Geometria e Modelagem no Design Têxtil, aqui estão algumas dicas para maximizar sua experiência online. Primeiro, crie um espaço de estudo livre de distrações, onde você possa se concentrar totalmente no material.",
+      "course": "Geometria e Modelagem no Design Têxtil",
+      "lessons": 7,
+      "modules": 3,
+      "overflow": false,
+      "percent": "",
+      "url": "/ava/2"
+    },
+    {
+      "body": "Se você está interessado em se aprofundar em Estatística e Controle de Qualidade na Produção, aqui estão algumas dicas para maximizar sua experiência online. Primeiro, crie um espaço de estudo livre de distrações, onde você possa se concentrar totalmente no material.",
+      "course": "Estatística e Controle de Qualidade na Produção",
+      "lessons": 7,
+      "modules": 3,
+      "overflow": false,
+      "percent": "",
+      "url": "/ava/3"
+    },
+    {
+      "body": "Se você está interessado em se aprofundar em Física do Movimento e da Energia na Metalurgia, aqui estão algumas dicas para maximizar sua experiência online. Primeiro, crie um espaço de estudo livre de distrações, onde você possa se concentrar totalmente no material.",
+      "course": "Física do Movimento e da Energia na Metalurgia",
+      "lessons": 7,
+      "modules": 3,
+      "overflow": false,
+      "percent": "",
+      "url": "/ava/4"
+    },
+    {
+      "body": "Se você está interessado em se aprofundar em Química e Sustentabilidade, aqui estão algumas dicas para maximizar sua experiência online. Primeiro, crie um espaço de estudo livre de distrações, onde você possa se concentrar totalmente no material.",
+      "course": "Química e Sustentabilidade",
+      "lessons": 7,
+      "modules": 3,
+      "overflow": false,
+      "percent": "",
+      "url": "/ava/5"
+    },
+    {
+      "body": "Se você está interessado em se aprofundar em Ciência dos Materiais na Metalurgia, aqui estão algumas dicas para maximizar sua experiência online. Primeiro, crie um espaço de estudo livre de distrações, onde você possa se concentrar totalmente no material.",
+      "course": "Ciência dos Materiais na Metalurgia",
+      "lessons": 7,
+      "modules": 3,
+      "overflow": false,
+      "percent": "",
+      "url": "/ava/6"
+    }
+  ],
+  "mobile": [
+    {
+      "heading": "Boas práticas",
+      "overflow": false,
+      "url": "/ava/1",
+      "width": 390
+    },
+    {
+      "heading": "Boas práticas",
+      "overflow": false,
+      "url": "/ava/2",
+      "width": 390
+    },
+    {
+      "heading": "Boas práticas",
+      "overflow": false,
+      "url": "/ava/3",
+      "width": 390
+    },
+    {
+      "heading": "Boas práticas",
+      "overflow": false,
+      "url": "/ava/4",
+      "width": 390
+    },
+    {
+      "heading": "Boas práticas",
+      "overflow": false,
+      "url": "/ava/5",
+      "width": 390
+    },
+    {
+      "heading": "Boas práticas",
+      "overflow": false,
+      "url": "/ava/6",
+      "width": 390
+    }
+  ]
+}

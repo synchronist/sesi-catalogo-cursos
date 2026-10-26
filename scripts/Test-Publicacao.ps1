@@ -11,7 +11,7 @@ function Check([string]$path, [int]$status, [string]$type) {
     return $response
 }
 $index = Check '/' 200 'text/html'
-foreach ($path in @('/cursos', '/cursos/1')) {
+foreach ($path in @('/cursos', '/cursos/1', '/ava', '/ava/1')) {
     $page = Check $path 200 'text/html'
     if ($page.Content -ne $index.Content) { throw "Fallback diferente do index em $path" }
 }
@@ -22,7 +22,7 @@ if ($courses.total -ne 6) { throw 'Quantidade diferente do seed esperado (6).' }
 $filtered = (Check '/api/cursos?busca=Medidas&categoria=matematica&modalidade=online&status=disponivel' 200 'application/json').Content | ConvertFrom-Json
 if ($filtered.total -ne 1) { throw 'Busca combinada inconsistente.' }
 $detail = (Check '/api/cursos/1' 200 'application/json').Content | ConvertFrom-Json
-if ($detail.modulos.Count -ne 2 -or @($detail.modulos.aulas).Count -ne 4) { throw 'Módulos/aulas inconsistentes.' }
+if ($detail.modulos.Count -ne 10 -or @($detail.modulos.aulas).Count -ne 30) { throw 'Módulos/aulas inconsistentes com a revisão final.' }
 $null = Check '/api/cursos?status=invalido' 400 'application/problem+json'
 $null = Check '/api/cursos/999999' 404 'application/problem+json'
 $null = Check '/api/inexistente' 404 'application/problem+json'

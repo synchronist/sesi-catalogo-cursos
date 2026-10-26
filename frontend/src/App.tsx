@@ -4,11 +4,15 @@ import { Link, useLocation } from "./navigation";
 import { Catalog } from "./pages/Catalog";
 import { Details } from "./pages/Details";
 import { Home } from "./pages/Home";
+import { scrollToCourseSection } from "./courseAnchor";
+import { Learning, LearningCourses } from "./pages/Learning";
 
 export function App() {
   const { pathname, search, hash } = useLocation();
+  const learning = /^\/ava\/([^/]+)\/?$/.exec(pathname);
   useEffect(() => {
-    document.title = `${pathname === "/" ? "Educação para a indústria" : pathname === "/cursos" ? "Catálogo de cursos" : "Detalhes do curso"} | SESI Indústria`;
+    document.title = `${pathname.startsWith("/ava") ? "Ambiente de aprendizagem" : pathname === "/" ? "Educação para a indústria" : pathname === "/cursos" ? "Catálogo de cursos" : "Detalhes do curso"} | SESI Indústria`;
+    if (scrollToCourseSection(hash)) return;
     if (hash) document.getElementById(hash.slice(1))?.scrollIntoView();
     else window.scrollTo(0, 0);
     document.getElementById("conteudo")?.focus({ preventScroll: true });
@@ -19,9 +23,9 @@ export function App() {
       <a href="#conteudo" className="skip-link">
         Ir para o conteúdo
       </a>
-      <Header key={pathname} home={pathname === "/"} pathname={pathname} />
-      <main id="conteudo" tabIndex={-1} className={detail ? "detail-page" : ""}>
-        {pathname === "/" ? (
+      {!learning && <Header key={pathname} home={pathname === "/"} pathname={pathname} />}
+      <main id="conteudo" tabIndex={-1} className={learning ? "ava-page" : detail ? "detail-page" : ""}>
+        {learning ? <Learning id={learning[1]} search={search} /> : pathname === "/ava" ? <LearningCourses /> : pathname === "/" ? (
           <Home />
         ) : pathname === "/cursos" ? (
           <Catalog search={search} />
@@ -36,7 +40,7 @@ export function App() {
           </div>
         )}
       </main>
-      <Footer />
+      {!learning && <Footer />}
     </>
   );
 }

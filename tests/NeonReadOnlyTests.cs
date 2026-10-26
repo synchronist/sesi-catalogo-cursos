@@ -30,14 +30,14 @@ public sealed class NeonReadOnlyTests
         await using var transaction = await connection.BeginTransactionAsync();
         await using (var readOnly = new NpgsqlCommand("SET TRANSACTION READ ONLY", connection, transaction))
             await readOnly.ExecuteNonQueryAsync();
-        foreach (var (table, expected) in new[] { ("categorias", 3L), ("cursos", 6L), ("modulos", 12L), ("aulas", 24L) })
+        foreach (var (table, expected) in new[] { ("categorias", 3L), ("cursos", 6L), ("modulos", 20L), ("aulas", 50L) })
         {
             // Identificadores fixos do teste, sem entrada externa.
             await using var count = new NpgsqlCommand($"SELECT count(*) FROM public.{table}", connection, transaction);
             Assert.Equal(expected, (long)(await count.ExecuteScalarAsync())!);
         }
-        await using var history = new NpgsqlCommand("SELECT \"MigrationId\" FROM public.\"__EFMigrationsHistory\"", connection, transaction);
-        Assert.Equal("20261021233255_InitialCatalogo", await history.ExecuteScalarAsync());
+        await using var history = new NpgsqlCommand("SELECT count(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\" IN ('20261021233255_InitialCatalogo','20261024192422_AlignFeaturedCoursesWithFigma','20261024192600_AlignOfficialCourseImages','20261024225428_AlignMetalurgiaSyllabusWithFigma')", connection, transaction);
+        Assert.Equal(4L, (long)(await history.ExecuteScalarAsync())!);
         await transaction.RollbackAsync();
     }
 }

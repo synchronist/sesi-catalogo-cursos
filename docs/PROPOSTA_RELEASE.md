@@ -1,3 +1,7 @@
+# Decisão final — 26/10/2026
+
+A proposta histórica abaixo foi substituída: não publicar Release público, pois não há autorização explícita para redistribuição adicional dos assets. Preparar o ZIP final em entregaveis/final-2026-10-26/ para envio privado à comissão. O pacote antigo não representa o código final.
+
 # Proposta de distribuição — não executada
 
 Data: 23/10/2026. Não foi criado Release, tag, draft remoto ou upload. GitHub CLI não localizado nesta máquina; o procedimento recomendado usa o navegador autenticado, sem instalar ferramentas ou solicitar tokens.

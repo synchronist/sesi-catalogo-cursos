@@ -1,0 +1,96 @@
+{
+  "desktop": [
+    {
+      "answer": "Sim. Todas as aulas, atividades e avaliações são realizadas pela plataforma digital, permitindo que o aluno estude de onde estiver, no seu próprio ritmo.",
+      "editorials": 2,
+      "overflow": false,
+      "path": "/cursos/1",
+      "questions": 10,
+      "title": "Matemática para a Precisão: Medidas e Escalas na Metalurgia",
+      "topics": 8
+    },
+    {
+      "answer": "Não. Este curso está cadastrado na modalidade semipresencial, combinando atividades online e presenciais. A programação presencial não está disponível nesta demonstração.",
+      "editorials": 2,
+      "overflow": false,
+      "path": "/cursos/2",
+      "questions": 10,
+      "title": "Geometria e Modelagem no Design Têxtil",
+      "topics": 8
+    },
+    {
+      "answer": "Sim. Todas as aulas, atividades e avaliações são realizadas pela plataforma digital, permitindo que o aluno estude de onde estiver, no seu próprio ritmo.",
+      "editorials": 2,
+      "overflow": false,
+      "path": "/cursos/3",
+      "questions": 10,
+      "title": "Estatística e Controle de Qualidade na Produção",
+      "topics": 8
+    },
+    {
+      "answer": "Não. Este curso está cadastrado na modalidade semipresencial, combinando atividades online e presenciais. A programação presencial não está disponível nesta demonstração.",
+      "editorials": 2,
+      "overflow": false,
+      "path": "/cursos/4",
+      "questions": 10,
+      "title": "Física do Movimento e da Energia na Metalurgia",
+      "topics": 8
+    },
+    {
+      "answer": "Sim. Todas as aulas, atividades e avaliações são realizadas pela plataforma digital, permitindo que o aluno estude de onde estiver, no seu próprio ritmo.",
+      "editorials": 2,
+      "overflow": false,
+      "path": "/cursos/5",
+      "questions": 10,
+      "title": "Química e Sustentabilidade",
+      "topics": 8
+    },
+    {
+      "answer": "Não. Este curso está cadastrado na modalidade semipresencial, combinando atividades online e presenciais. A programação presencial não está disponível nesta demonstração.",
+      "editorials": 2,
+      "overflow": false,
+      "path": "/cursos/6",
+      "questions": 10,
+      "title": "Ciência dos Materiais na Metalurgia",
+      "topics": 8
+    }
+  ],
+  "mobile": [
+    {
+      "overflow": false,
+      "path": "/cursos/1",
+      "questions": 10,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "path": "/cursos/2",
+      "questions": 10,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "path": "/cursos/3",
+      "questions": 10,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "path": "/cursos/4",
+      "questions": 10,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "path": "/cursos/5",
+      "questions": 10,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "path": "/cursos/6",
+      "questions": 10,
+      "width": 390
+    }
+  ]
+}

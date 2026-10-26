@@ -17,7 +17,7 @@ As migrations compiladas estão na DLL da API; `migrations/*.cs` são referênci
 ```bash
 git clone https://github.com/synchronist/sesi-catalogo-cursos.git
 cd sesi-catalogo-cursos
-git checkout 29e997bbf597f84a2f4e8061dbfd36d5a4e8d25c
+# Usar o sourceCommit registrado no PUBLICACAO.json do pacote recebido.
 dotnet tool restore
 dotnet restore backend/Sesi.Catalogo.Api.csproj
 dotnet ef migrations list --project backend
@@ -29,7 +29,7 @@ dotnet ef database update --project backend
 
 Configure `ConnectionStrings__Catalogo` no ambiente dessa sessão antes dos comandos EF, usando um gerenciador de segredos ou entrada protegida. Exemplo fictício de formato: `Host=SEU_HOST;Database=SEU_BANCO;Username=SEU_USUARIO;Password=SUA_SENHA;SSL Mode=VerifyFull`. Em PostgreSQL local sem TLS, ajuste à política da instância; a exigência VerifyFull é obrigatória para Neon.
 
-A migration `20261021233255_InitialCatalogo` cria schema e seed determinístico (3 categorias, 6 cursos, 12 módulos, 24 aulas). Não execute o método Down, não use EnsureCreated e não recrie bancos. Em banco existente compare o histórico e aplique somente o que estiver pendente e compatível; tabelas pré-existentes sem histórico EF exigem análise, não aplicação cega. Não executar automaticamente no startup. Reaplicar a mesma migration não duplica seed. Não há comando de seed avulso necessário.
+A migration inicial cria schema e seed; as três migrations posteriores alinham os cursos, imagens e programa de Metalurgia ao Figma. Estado final: 3 categorias, 6 cursos, 20 módulos e 50 aulas; curso 1 com 10 módulos e 30 aulas. Não execute Down, não use EnsureCreated e não recrie bancos. Em banco existente compare o histórico e aplique somente migrations pendentes compatíveis após revisar seu SQL e destino. Não há migrations/seed automáticos no startup nem comando avulso de seed necessário.
 
 ## Executar
 

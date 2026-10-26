@@ -60,39 +60,247 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         new
                         {
                             Id = 111,
-                            Descricao = "Identifique os conceitos de unidades e escalas e relacione-os a medição de peças e interpretação de escalas.",
+                            Descricao = "Tópico demonstrativo do protótipo: Conceitos fundamentais de medidas e escalas aplicados à metalurgia.",
                             ModuloId = 11,
                             Ordem = 1,
-                            Titulo = "Unidades e escalas: conceitos essenciais"
+                            Titulo = "Conceitos fundamentais de medidas e escalas aplicados à metalurgia."
                         },
                         new
                         {
                             Id = 112,
-                            Descricao = "Analise um caso fictício de medição de peças e interpretação de escalas, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Tópico demonstrativo do protótipo: Importância da precisão nas medições e controle de qualidade.",
                             ModuloId = 11,
                             Ordem = 2,
-                            Titulo = "Unidades e escalas: situação prática"
+                            Titulo = "Importância da precisão nas medições e controle de qualidade."
+                        },
+                        new
+                        {
+                            Id = 113,
+                            Descricao = "Tópico demonstrativo do protótipo: Panorama das normas e regulamentos no Brasil relacionados à metalurgia.",
+                            ModuloId = 11,
+                            Ordem = 3,
+                            Titulo = "Panorama das normas e regulamentos no Brasil relacionados à metalurgia."
                         },
                         new
                         {
                             Id = 121,
-                            Descricao = "Identifique os conceitos de medição no chão de fábrica e relacione-os a medição de peças e interpretação de escalas.",
+                            Descricao = "Tópico demonstrativo do protótipo: Tipos de medidas utilizadas: comprimento, massa, volume e temperatura.",
                             ModuloId = 12,
                             Ordem = 1,
-                            Titulo = "Medição no chão de fábrica: conceitos essenciais"
+                            Titulo = "Tipos de medidas utilizadas: comprimento, massa, volume e temperatura."
                         },
                         new
                         {
                             Id = 122,
-                            Descricao = "Analise um caso fictício de medição de peças e interpretação de escalas, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Tópico demonstrativo do protótipo: Técnicas de análise de precisão nas medições.",
                             ModuloId = 12,
                             Ordem = 2,
-                            Titulo = "Medição no chão de fábrica: situação prática"
+                            Titulo = "Técnicas de análise de precisão nas medições."
+                        },
+                        new
+                        {
+                            Id = 123,
+                            Descricao = "Tópico demonstrativo do protótipo: Elaboração de gráficos e tabelas de medidas.",
+                            ModuloId = 12,
+                            Ordem = 3,
+                            Titulo = "Elaboração de gráficos e tabelas de medidas."
+                        },
+                        new
+                        {
+                            Id = 131,
+                            Descricao = "Tópico demonstrativo do protótipo: Estudo das principais normas aplicáveis à metalurgia (ABNT, ISO, entre outras).",
+                            ModuloId = 13,
+                            Ordem = 1,
+                            Titulo = "Estudo das principais normas aplicáveis à metalurgia (ABNT, ISO, entre outras)."
+                        },
+                        new
+                        {
+                            Id = 132,
+                            Descricao = "Tópico demonstrativo do protótipo: Interpretação e aplicação prática das normas de medição.",
+                            ModuloId = 13,
+                            Ordem = 2,
+                            Titulo = "Interpretação e aplicação prática das normas de medição."
+                        },
+                        new
+                        {
+                            Id = 133,
+                            Descricao = "Tópico demonstrativo do protótipo: Atualizações e impactos legais nas práticas de medição.",
+                            ModuloId = 13,
+                            Ordem = 3,
+                            Titulo = "Atualizações e impactos legais nas práticas de medição."
+                        },
+                        new
+                        {
+                            Id = 141,
+                            Descricao = "Tópico demonstrativo do protótipo: Tipos de instrumentos utilizados na metalurgia: paquímetros, micrômetros e balanças.",
+                            ModuloId = 14,
+                            Ordem = 1,
+                            Titulo = "Tipos de instrumentos utilizados na metalurgia: paquímetros, micrômetros e balanças."
+                        },
+                        new
+                        {
+                            Id = 142,
+                            Descricao = "Tópico demonstrativo do protótipo: Critérios de seleção, uso e calibração.",
+                            ModuloId = 14,
+                            Ordem = 2,
+                            Titulo = "Critérios de seleção, uso e calibração."
+                        },
+                        new
+                        {
+                            Id = 143,
+                            Descricao = "Tópico demonstrativo do protótipo: Responsabilidades legais de operadores e supervisores.",
+                            ModuloId = 14,
+                            Ordem = 3,
+                            Titulo = "Responsabilidades legais de operadores e supervisores."
+                        },
+                        new
+                        {
+                            Id = 151,
+                            Descricao = "Tópico demonstrativo do protótipo: Tipos de erros e incertezas nas medições.",
+                            ModuloId = 15,
+                            Ordem = 1,
+                            Titulo = "Tipos de erros e incertezas nas medições."
+                        },
+                        new
+                        {
+                            Id = 152,
+                            Descricao = "Tópico demonstrativo do protótipo: Procedimentos para garantir a precisão e exatidão.",
+                            ModuloId = 15,
+                            Ordem = 2,
+                            Titulo = "Procedimentos para garantir a precisão e exatidão."
+                        },
+                        new
+                        {
+                            Id = 153,
+                            Descricao = "Tópico demonstrativo do protótipo: Treinamento prático em técnicas de medição.",
+                            ModuloId = 15,
+                            Ordem = 3,
+                            Titulo = "Treinamento prático em técnicas de medição."
+                        },
+                        new
+                        {
+                            Id = 161,
+                            Descricao = "Tópico demonstrativo do protótipo: Princípios ergonômicos aplicados ao uso de instrumentos de medição.",
+                            ModuloId = 16,
+                            Ordem = 1,
+                            Titulo = "Princípios ergonômicos aplicados ao uso de instrumentos de medição."
+                        },
+                        new
+                        {
+                            Id = 162,
+                            Descricao = "Tópico demonstrativo do protótipo: Prevenção de lesões por uso inadequado de ferramentas.",
+                            ModuloId = 16,
+                            Ordem = 2,
+                            Titulo = "Prevenção de lesões por uso inadequado de ferramentas."
+                        },
+                        new
+                        {
+                            Id = 163,
+                            Descricao = "Tópico demonstrativo do protótipo: Qualidade de vida no ambiente de trabalho.",
+                            ModuloId = 16,
+                            Ordem = 3,
+                            Titulo = "Qualidade de vida no ambiente de trabalho."
+                        },
+                        new
+                        {
+                            Id = 171,
+                            Descricao = "Tópico demonstrativo do protótipo: Técnicas de análise de dados de medições.",
+                            ModuloId = 17,
+                            Ordem = 1,
+                            Titulo = "Técnicas de análise de dados de medições."
+                        },
+                        new
+                        {
+                            Id = 172,
+                            Descricao = "Tópico demonstrativo do protótipo: Elaboração de relatórios e planos de ação para melhorias.",
+                            ModuloId = 17,
+                            Ordem = 2,
+                            Titulo = "Elaboração de relatórios e planos de ação para melhorias."
+                        },
+                        new
+                        {
+                            Id = 173,
+                            Descricao = "Tópico demonstrativo do protótipo: Indicadores de precisão e melhoria contínua.",
+                            ModuloId = 17,
+                            Ordem = 3,
+                            Titulo = "Indicadores de precisão e melhoria contínua."
+                        },
+                        new
+                        {
+                            Id = 181,
+                            Descricao = "Tópico demonstrativo do protótipo: Desenvolvimento de uma cultura organizacional voltada à precisão nas medições.",
+                            ModuloId = 18,
+                            Ordem = 1,
+                            Titulo = "Desenvolvimento de uma cultura organizacional voltada à precisão nas medições."
+                        },
+                        new
+                        {
+                            Id = 182,
+                            Descricao = "Tópico demonstrativo do protótipo: Comunicação eficaz e liderança em práticas de medição.",
+                            ModuloId = 18,
+                            Ordem = 2,
+                            Titulo = "Comunicação eficaz e liderança em práticas de medição."
+                        },
+                        new
+                        {
+                            Id = 183,
+                            Descricao = "Tópico demonstrativo do protótipo: Programas de conscientização e engajamento dos colaboradores.",
+                            ModuloId = 18,
+                            Ordem = 3,
+                            Titulo = "Programas de conscientização e engajamento dos colaboradores."
+                        },
+                        new
+                        {
+                            Id = 191,
+                            Descricao = "Tópico demonstrativo do protótipo: Uso de plataformas digitais, sensores e automação na medição de precisão.",
+                            ModuloId = 19,
+                            Ordem = 1,
+                            Titulo = "Uso de plataformas digitais, sensores e automação na medição de precisão."
+                        },
+                        new
+                        {
+                            Id = 192,
+                            Descricao = "Tópico demonstrativo do protótipo: Sistemas de gestão de qualidade.",
+                            ModuloId = 19,
+                            Ordem = 2,
+                            Titulo = "Sistemas de gestão de qualidade."
+                        },
+                        new
+                        {
+                            Id = 193,
+                            Descricao = "Tópico demonstrativo do protótipo: Tendências e inovações no setor metalúrgico.",
+                            ModuloId = 19,
+                            Ordem = 3,
+                            Titulo = "Tendências e inovações no setor metalúrgico."
+                        },
+                        new
+                        {
+                            Id = 201,
+                            Descricao = "Tópico demonstrativo do protótipo: Teste de conhecimentos adquiridos sobre medidas e escalas.",
+                            ModuloId = 20,
+                            Ordem = 1,
+                            Titulo = "Teste de conhecimentos adquiridos sobre medidas e escalas."
+                        },
+                        new
+                        {
+                            Id = 202,
+                            Descricao = "Tópico demonstrativo do protótipo: Atividades práticas e estudos de caso.",
+                            ModuloId = 20,
+                            Ordem = 2,
+                            Titulo = "Atividades práticas e estudos de caso."
+                        },
+                        new
+                        {
+                            Id = 203,
+                            Descricao = "Tópico demonstrativo do protótipo: Emissão de certificado digital de conclusão.",
+                            ModuloId = 20,
+                            Ordem = 3,
+                            Titulo = "Emissão de certificado digital de conclusão."
                         },
                         new
                         {
                             Id = 211,
-                            Descricao = "Identifique os conceitos de formas e simetria e relacione-os a formas geométricas, simetria e aproveitamento de tecidos.",
+                            Descricao = "Identifique os conceitos de formas e simetria e relacione-os a formas geométricas, simetria e padrões em tecidos.",
                             ModuloId = 21,
                             Ordem = 1,
                             Titulo = "Formas e simetria: conceitos essenciais"
@@ -100,7 +308,7 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         new
                         {
                             Id = 212,
-                            Descricao = "Analise um caso fictício de formas geométricas, simetria e aproveitamento de tecidos, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de formas geométricas, simetria e padrões em tecidos, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 21,
                             Ordem = 2,
                             Titulo = "Formas e simetria: situação prática"
@@ -108,7 +316,7 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         new
                         {
                             Id = 221,
-                            Descricao = "Identifique os conceitos de planejamento de cortes e relacione-os a formas geométricas, simetria e aproveitamento de tecidos.",
+                            Descricao = "Identifique os conceitos de planejamento de cortes e relacione-os a formas geométricas, simetria e padrões em tecidos.",
                             ModuloId = 22,
                             Ordem = 1,
                             Titulo = "Planejamento de cortes: conceitos essenciais"
@@ -116,7 +324,7 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         new
                         {
                             Id = 222,
-                            Descricao = "Analise um caso fictício de formas geométricas, simetria e aproveitamento de tecidos, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de formas geométricas, simetria e padrões em tecidos, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 22,
                             Ordem = 2,
                             Titulo = "Planejamento de cortes: situação prática"
@@ -124,130 +332,130 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         new
                         {
                             Id = 311,
-                            Descricao = "Identifique os conceitos de forças e movimento e relacione-os a forças, movimento e transformação de energia em máquinas.",
+                            Descricao = "Identifique os conceitos de dados e indicadores e relacione-os a leitura de dados e controle estatístico da qualidade.",
                             ModuloId = 31,
+                            Ordem = 1,
+                            Titulo = "Dados e indicadores: conceitos essenciais"
+                        },
+                        new
+                        {
+                            Id = 312,
+                            Descricao = "Analise um caso fictício de leitura de dados e controle estatístico da qualidade, registre sua solução e explique os critérios utilizados.",
+                            ModuloId = 31,
+                            Ordem = 2,
+                            Titulo = "Dados e indicadores: situação prática"
+                        },
+                        new
+                        {
+                            Id = 321,
+                            Descricao = "Identifique os conceitos de controle estatístico da qualidade e relacione-os a leitura de dados e controle estatístico da qualidade.",
+                            ModuloId = 32,
+                            Ordem = 1,
+                            Titulo = "Controle estatístico da qualidade: conceitos essenciais"
+                        },
+                        new
+                        {
+                            Id = 322,
+                            Descricao = "Analise um caso fictício de leitura de dados e controle estatístico da qualidade, registre sua solução e explique os critérios utilizados.",
+                            ModuloId = 32,
+                            Ordem = 2,
+                            Titulo = "Controle estatístico da qualidade: situação prática"
+                        },
+                        new
+                        {
+                            Id = 411,
+                            Descricao = "Identifique os conceitos de forças e movimento e relacione-os a forças, atrito, calor e energia em máquinas.",
+                            ModuloId = 41,
                             Ordem = 1,
                             Titulo = "Forças e movimento: conceitos essenciais"
                         },
                         new
                         {
-                            Id = 312,
-                            Descricao = "Analise um caso fictício de forças, movimento e transformação de energia em máquinas, registre sua solução e explique os critérios utilizados.",
-                            ModuloId = 31,
+                            Id = 412,
+                            Descricao = "Analise um caso fictício de forças, atrito, calor e energia em máquinas, registre sua solução e explique os critérios utilizados.",
+                            ModuloId = 41,
                             Ordem = 2,
                             Titulo = "Forças e movimento: situação prática"
                         },
                         new
                         {
-                            Id = 321,
-                            Descricao = "Identifique os conceitos de eficiência energética e relacione-os a forças, movimento e transformação de energia em máquinas.",
-                            ModuloId = 32,
-                            Ordem = 1,
-                            Titulo = "Eficiência energética: conceitos essenciais"
-                        },
-                        new
-                        {
-                            Id = 322,
-                            Descricao = "Analise um caso fictício de forças, movimento e transformação de energia em máquinas, registre sua solução e explique os critérios utilizados.",
-                            ModuloId = 32,
-                            Ordem = 2,
-                            Titulo = "Eficiência energética: situação prática"
-                        },
-                        new
-                        {
-                            Id = 411,
-                            Descricao = "Identifique os conceitos de propriedades dos materiais e relacione-os a propriedades químicas, corrosão e seleção de materiais.",
-                            ModuloId = 41,
-                            Ordem = 1,
-                            Titulo = "Propriedades dos materiais: conceitos essenciais"
-                        },
-                        new
-                        {
-                            Id = 412,
-                            Descricao = "Analise um caso fictício de propriedades químicas, corrosão e seleção de materiais, registre sua solução e explique os critérios utilizados.",
-                            ModuloId = 41,
-                            Ordem = 2,
-                            Titulo = "Propriedades dos materiais: situação prática"
-                        },
-                        new
-                        {
                             Id = 421,
-                            Descricao = "Identifique os conceitos de prevenção da corrosão e relacione-os a propriedades químicas, corrosão e seleção de materiais.",
+                            Descricao = "Identifique os conceitos de calor e energia nos processos e relacione-os a forças, atrito, calor e energia em máquinas.",
                             ModuloId = 42,
                             Ordem = 1,
-                            Titulo = "Prevenção da corrosão: conceitos essenciais"
+                            Titulo = "Calor e energia nos processos: conceitos essenciais"
                         },
                         new
                         {
                             Id = 422,
-                            Descricao = "Analise um caso fictício de propriedades químicas, corrosão e seleção de materiais, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de forças, atrito, calor e energia em máquinas, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 42,
                             Ordem = 2,
-                            Titulo = "Prevenção da corrosão: situação prática"
+                            Titulo = "Calor e energia nos processos: situação prática"
                         },
                         new
                         {
                             Id = 511,
-                            Descricao = "Identifique os conceitos de clareza e organização e relacione-os a comunicação clara de procedimentos e ocorrências de produção.",
+                            Descricao = "Identifique os conceitos de reações e soluções e relacione-os a reações químicas na tinturaria e no acabamento de tecidos.",
                             ModuloId = 51,
                             Ordem = 1,
-                            Titulo = "Clareza e organização: conceitos essenciais"
+                            Titulo = "Reações e soluções: conceitos essenciais"
                         },
                         new
                         {
                             Id = 512,
-                            Descricao = "Analise um caso fictício de comunicação clara de procedimentos e ocorrências de produção, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de reações químicas na tinturaria e no acabamento de tecidos, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 51,
                             Ordem = 2,
-                            Titulo = "Clareza e organização: situação prática"
+                            Titulo = "Reações e soluções: situação prática"
                         },
                         new
                         {
                             Id = 521,
-                            Descricao = "Identifique os conceitos de relatos de ocorrências e relacione-os a comunicação clara de procedimentos e ocorrências de produção.",
+                            Descricao = "Identifique os conceitos de tinturaria e sustentabilidade e relacione-os a reações químicas na tinturaria e no acabamento de tecidos.",
                             ModuloId = 52,
                             Ordem = 1,
-                            Titulo = "Relatos de ocorrências: conceitos essenciais"
+                            Titulo = "Tinturaria e sustentabilidade: conceitos essenciais"
                         },
                         new
                         {
                             Id = 522,
-                            Descricao = "Analise um caso fictício de comunicação clara de procedimentos e ocorrências de produção, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de reações químicas na tinturaria e no acabamento de tecidos, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 52,
                             Ordem = 2,
-                            Titulo = "Relatos de ocorrências: situação prática"
+                            Titulo = "Tinturaria e sustentabilidade: situação prática"
                         },
                         new
                         {
                             Id = 611,
-                            Descricao = "Identifique os conceitos de estrutura dos documentos e relacione-os a interpretação de manuais, instruções e registros industriais.",
+                            Descricao = "Identifique os conceitos de estrutura dos metais e relacione-os a estrutura, resistência e propriedades dos metais.",
                             ModuloId = 61,
                             Ordem = 1,
-                            Titulo = "Estrutura dos documentos: conceitos essenciais"
+                            Titulo = "Estrutura dos metais: conceitos essenciais"
                         },
                         new
                         {
                             Id = 612,
-                            Descricao = "Analise um caso fictício de interpretação de manuais, instruções e registros industriais, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de estrutura, resistência e propriedades dos metais, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 61,
                             Ordem = 2,
-                            Titulo = "Estrutura dos documentos: situação prática"
+                            Titulo = "Estrutura dos metais: situação prática"
                         },
                         new
                         {
                             Id = 621,
-                            Descricao = "Identifique os conceitos de interpretação de procedimentos e relacione-os a interpretação de manuais, instruções e registros industriais.",
+                            Descricao = "Identifique os conceitos de resistência e seleção de materiais e relacione-os a estrutura, resistência e propriedades dos metais.",
                             ModuloId = 62,
                             Ordem = 1,
-                            Titulo = "Interpretação de procedimentos: conceitos essenciais"
+                            Titulo = "Resistência e seleção de materiais: conceitos essenciais"
                         },
                         new
                         {
                             Id = 622,
-                            Descricao = "Analise um caso fictício de interpretação de manuais, instruções e registros industriais, registre sua solução e explique os critérios utilizados.",
+                            Descricao = "Analise um caso fictício de estrutura, resistência e propriedades dos metais, registre sua solução e explique os critérios utilizados.",
                             ModuloId = 62,
                             Ordem = 2,
-                            Titulo = "Interpretação de procedimentos: situação prática"
+                            Titulo = "Resistência e seleção de materiais: situação prática"
                         });
                 });
 
@@ -374,13 +582,13 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                             CargaHoraria = 20,
                             CategoriaId = 1,
                             DataDisponibilizacao = new DateOnly(2026, 9, 1),
-                            Descricao = "Curso fictício de medidas e escalas na metalurgia, voltado a medição de peças e interpretação de escalas. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
-                            Imagem = "/assets/oficiais/banner-ava.png",
+                            Descricao = "Explore nosso curso de Matemática para a Precisão: Medidas e Escalas na Metalurgia, perfeito para quem deseja se destacar nesse campo! Este programa abrangente foi desenvolvido para capacitar profissionais com as habilidades e conhecimentos fundamentais para garantir medições precisas e eficientes no ambiente metalúrgico.",
+                            Imagem = "/assets/oficiais/figma/medicao-metalurgia.png",
                             Modalidade = "online",
                             NomeBreve = "Medidas na Metalurgia",
-                            NomeCompleto = "Medidas e Escalas na Metalurgia",
+                            NomeCompleto = "Matemática para a Precisão: Medidas e Escalas na Metalurgia",
                             PublicoAlvo = "Operadores de usinagem e estudantes de metrologia",
-                            Resumo = "Aprenda sobre medição de peças e interpretação de escalas com exemplos do ambiente industrial.",
+                            Resumo = "Aplicação de grandezas, proporções e escalas em processos de corte, furação e usinagem.",
                             Status = "disponivel"
                         },
                         new
@@ -389,28 +597,28 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                             CargaHoraria = 24,
                             CategoriaId = 1,
                             DataDisponibilizacao = new DateOnly(2026, 11, 9),
-                            Descricao = "Curso fictício de geometria aplicada ao design têxtil, voltado a formas geométricas, simetria e aproveitamento de tecidos. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
-                            Imagem = "/assets/oficiais/banner-ava.png",
+                            Descricao = "Curso fictício de geometria e modelagem no design têxtil, voltado a formas geométricas, simetria e padrões em tecidos. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
+                            Imagem = "/assets/oficiais/figma/industria-textil.jpg",
                             Modalidade = "semipresencial",
                             NomeBreve = "Geometria Têxtil",
-                            NomeCompleto = "Geometria Aplicada ao Design Têxtil",
+                            NomeCompleto = "Geometria e Modelagem no Design Têxtil",
                             PublicoAlvo = "Estudantes de moda e profissionais da indústria têxtil",
-                            Resumo = "Aprenda sobre formas geométricas, simetria e aproveitamento de tecidos com exemplos do ambiente industrial.",
+                            Resumo = "Explora formas geométricas, simetria e padrões matemáticos presentes em tecidos e estampas.",
                             Status = "em-breve"
                         },
                         new
                         {
                             Id = 3,
                             CargaHoraria = 16,
-                            CategoriaId = 2,
+                            CategoriaId = 1,
                             DataDisponibilizacao = new DateOnly(2026, 9, 1),
-                            Descricao = "Curso fictício de energia e movimento na indústria, voltado a forças, movimento e transformação de energia em máquinas. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
-                            Imagem = "/assets/oficiais/banner-ava.png",
+                            Descricao = "Curso fictício de estatística e controle de qualidade na produção, voltado a leitura de dados e controle estatístico da qualidade. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
+                            Imagem = "/assets/oficiais/figma/controle-producao.jpg",
                             Modalidade = "online",
-                            NomeBreve = "Energia Industrial",
-                            NomeCompleto = "Energia e Movimento na Indústria",
-                            PublicoAlvo = "Auxiliares de manutenção e estudantes de mecânica",
-                            Resumo = "Aprenda sobre forças, movimento e transformação de energia em máquinas com exemplos do ambiente industrial.",
+                            NomeBreve = "Estatística na Produção",
+                            NomeCompleto = "Estatística e Controle de Qualidade na Produção",
+                            PublicoAlvo = "Inspetores de qualidade e estudantes de processos industriais",
+                            Resumo = "Leitura e interpretação de dados de controle de qualidade e produtividade.",
                             Status = "disponivel"
                         },
                         new
@@ -419,43 +627,43 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                             CargaHoraria = 32,
                             CategoriaId = 2,
                             DataDisponibilizacao = new DateOnly(2026, 9, 1),
-                            Descricao = "Curso fictício de química dos materiais industriais, voltado a propriedades químicas, corrosão e seleção de materiais. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
-                            Imagem = "/assets/oficiais/banner-ava.png",
+                            Descricao = "Curso fictício de física do movimento e da energia na metalurgia, voltado a forças, atrito, calor e energia em máquinas. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
+                            Imagem = "/assets/oficiais/figma/soldagem-industrial.jpg",
                             Modalidade = "semipresencial",
-                            NomeBreve = "Química Industrial",
-                            NomeCompleto = "Química dos Materiais Industriais",
-                            PublicoAlvo = "Técnicos de laboratório e estudantes de materiais",
-                            Resumo = "Aprenda sobre propriedades químicas, corrosão e seleção de materiais com exemplos do ambiente industrial.",
+                            NomeBreve = "Física na Metalurgia",
+                            NomeCompleto = "Física do Movimento e da Energia na Metalurgia",
+                            PublicoAlvo = "Auxiliares de manutenção e estudantes de mecânica",
+                            Resumo = "Estudo de forças, atrito, calor e energia em máquinas, fornos e prensas.",
                             Status = "encerrado"
                         },
                         new
                         {
                             Id = 5,
                             CargaHoraria = 12,
-                            CategoriaId = 3,
+                            CategoriaId = 2,
                             DataDisponibilizacao = new DateOnly(2026, 9, 1),
-                            Descricao = "Curso fictício de comunicação técnica na produção, voltado a comunicação clara de procedimentos e ocorrências de produção. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
-                            Imagem = "/assets/oficiais/banner-ava.png",
+                            Descricao = "Curso fictício de química e sustentabilidade, voltado a reações químicas na tinturaria e no acabamento de tecidos. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
+                            Imagem = "/assets/oficiais/figma/laboratorio-quimico.jpg",
                             Modalidade = "online",
-                            NomeBreve = "Comunicação na Produção",
-                            NomeCompleto = "Comunicação Técnica na Produção",
-                            PublicoAlvo = "Líderes de equipe e assistentes de produção",
-                            Resumo = "Aprenda sobre comunicação clara de procedimentos e ocorrências de produção com exemplos do ambiente industrial.",
+                            NomeBreve = "Química Sustentável",
+                            NomeCompleto = "Química e Sustentabilidade",
+                            PublicoAlvo = "Técnicos de laboratório e profissionais do acabamento têxtil",
+                            Resumo = "Estudo das reações químicas envolvidas na tinturaria e acabamento de tecidos.",
                             Status = "disponivel"
                         },
                         new
                         {
                             Id = 6,
                             CargaHoraria = 18,
-                            CategoriaId = 3,
+                            CategoriaId = 2,
                             DataDisponibilizacao = new DateOnly(2026, 11, 9),
-                            Descricao = "Curso fictício de leitura de documentos industriais, voltado a interpretação de manuais, instruções e registros industriais. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
-                            Imagem = "/assets/oficiais/banner-ava.png",
+                            Descricao = "Curso fictício de ciência dos materiais na metalurgia, voltado a estrutura, resistência e propriedades dos metais. O percurso combina conceitos, análise de situações industriais e exercícios de aplicação. Ao final, o participante poderá justificar decisões e reconhecer cuidados necessários em sua rotina profissional.",
+                            Imagem = "/assets/oficiais/figma/equipamento-industrial.jpg",
                             Modalidade = "semipresencial",
-                            NomeBreve = "Documentação Industrial",
-                            NomeCompleto = "Leitura de Documentos Industriais",
-                            PublicoAlvo = "Aprendizes industriais e auxiliares administrativos",
-                            Resumo = "Aprenda sobre interpretação de manuais, instruções e registros industriais com exemplos do ambiente industrial.",
+                            NomeBreve = "Materiais na Metalurgia",
+                            NomeCompleto = "Ciência dos Materiais na Metalurgia",
+                            PublicoAlvo = "Aprendizes de metalurgia e estudantes de materiais",
+                            Resumo = "Conceitos básicos de estrutura, resistência e propriedades dos metais.",
                             Status = "em-breve"
                         });
                 });
@@ -499,23 +707,87 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         {
                             Id = 11,
                             CursoId = 1,
-                            Descricao = "Estudo de unidades e escalas no contexto de medição de peças e interpretação de escalas.",
+                            Descricao = "Estudo de introdução à matemática na metalurgia no contexto de grandezas, proporções e escalas na metalurgia.",
                             Ordem = 1,
-                            Titulo = "Unidades e escalas"
+                            Titulo = "Introdução à Matemática na Metalurgia"
                         },
                         new
                         {
                             Id = 12,
                             CursoId = 1,
-                            Descricao = "Estudo de medição no chão de fábrica no contexto de medição de peças e interpretação de escalas.",
+                            Descricao = "Estudo de identificação e avaliação de medidas no contexto de grandezas, proporções e escalas na metalurgia.",
                             Ordem = 2,
-                            Titulo = "Medição no chão de fábrica"
+                            Titulo = "Identificação e Avaliação de Medidas"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CursoId = 1,
+                            Descricao = "Estudo de normas e regulamentações no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 3,
+                            Titulo = "Normas e Regulamentações"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CursoId = 1,
+                            Descricao = "Estudo de instrumentos de medição no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 4,
+                            Titulo = "Instrumentos de Medição"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CursoId = 1,
+                            Descricao = "Estudo de prevenção de erros de medição no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 5,
+                            Titulo = "Prevenção de Erros de Medição"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CursoId = 1,
+                            Descricao = "Estudo de ergonomia e eficiência na medição no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 6,
+                            Titulo = "Ergonomia e Eficiência na Medição"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CursoId = 1,
+                            Descricao = "Estudo de análise de resultados de medição no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 7,
+                            Titulo = "Análise de Resultados de Medição"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CursoId = 1,
+                            Descricao = "Estudo de cultura de precisão e comportamento seguro no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 8,
+                            Titulo = "Cultura de Precisão e Comportamento Seguro"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CursoId = 1,
+                            Descricao = "Estudo de tecnologias aplicadas à medição no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 9,
+                            Titulo = "Tecnologias Aplicadas à Medição"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CursoId = 1,
+                            Descricao = "Estudo de avaliação final e certificação no contexto de grandezas, proporções e escalas na metalurgia.",
+                            Ordem = 10,
+                            Titulo = "Avaliação Final e Certificação"
                         },
                         new
                         {
                             Id = 21,
                             CursoId = 2,
-                            Descricao = "Estudo de formas e simetria no contexto de formas geométricas, simetria e aproveitamento de tecidos.",
+                            Descricao = "Estudo de formas e simetria no contexto de formas geométricas, simetria e padrões em tecidos.",
                             Ordem = 1,
                             Titulo = "Formas e simetria"
                         },
@@ -523,7 +795,7 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         {
                             Id = 22,
                             CursoId = 2,
-                            Descricao = "Estudo de planejamento de cortes no contexto de formas geométricas, simetria e aproveitamento de tecidos.",
+                            Descricao = "Estudo de planejamento de cortes no contexto de formas geométricas, simetria e padrões em tecidos.",
                             Ordem = 2,
                             Titulo = "Planejamento de cortes"
                         },
@@ -531,65 +803,65 @@ namespace Sesi.Catalogo.Api.Persistence.Migrations
                         {
                             Id = 31,
                             CursoId = 3,
-                            Descricao = "Estudo de forças e movimento no contexto de forças, movimento e transformação de energia em máquinas.",
+                            Descricao = "Estudo de dados e indicadores no contexto de leitura de dados e controle estatístico da qualidade.",
                             Ordem = 1,
-                            Titulo = "Forças e movimento"
+                            Titulo = "Dados e indicadores"
                         },
                         new
                         {
                             Id = 32,
                             CursoId = 3,
-                            Descricao = "Estudo de eficiência energética no contexto de forças, movimento e transformação de energia em máquinas.",
+                            Descricao = "Estudo de controle estatístico da qualidade no contexto de leitura de dados e controle estatístico da qualidade.",
                             Ordem = 2,
-                            Titulo = "Eficiência energética"
+                            Titulo = "Controle estatístico da qualidade"
                         },
                         new
                         {
                             Id = 41,
                             CursoId = 4,
-                            Descricao = "Estudo de propriedades dos materiais no contexto de propriedades químicas, corrosão e seleção de materiais.",
+                            Descricao = "Estudo de forças e movimento no contexto de forças, atrito, calor e energia em máquinas.",
                             Ordem = 1,
-                            Titulo = "Propriedades dos materiais"
+                            Titulo = "Forças e movimento"
                         },
                         new
                         {
                             Id = 42,
                             CursoId = 4,
-                            Descricao = "Estudo de prevenção da corrosão no contexto de propriedades químicas, corrosão e seleção de materiais.",
+                            Descricao = "Estudo de calor e energia nos processos no contexto de forças, atrito, calor e energia em máquinas.",
                             Ordem = 2,
-                            Titulo = "Prevenção da corrosão"
+                            Titulo = "Calor e energia nos processos"
                         },
                         new
                         {
                             Id = 51,
                             CursoId = 5,
-                            Descricao = "Estudo de clareza e organização no contexto de comunicação clara de procedimentos e ocorrências de produção.",
+                            Descricao = "Estudo de reações e soluções no contexto de reações químicas na tinturaria e no acabamento de tecidos.",
                             Ordem = 1,
-                            Titulo = "Clareza e organização"
+                            Titulo = "Reações e soluções"
                         },
                         new
                         {
                             Id = 52,
                             CursoId = 5,
-                            Descricao = "Estudo de relatos de ocorrências no contexto de comunicação clara de procedimentos e ocorrências de produção.",
+                            Descricao = "Estudo de tinturaria e sustentabilidade no contexto de reações químicas na tinturaria e no acabamento de tecidos.",
                             Ordem = 2,
-                            Titulo = "Relatos de ocorrências"
+                            Titulo = "Tinturaria e sustentabilidade"
                         },
                         new
                         {
                             Id = 61,
                             CursoId = 6,
-                            Descricao = "Estudo de estrutura dos documentos no contexto de interpretação de manuais, instruções e registros industriais.",
+                            Descricao = "Estudo de estrutura dos metais no contexto de estrutura, resistência e propriedades dos metais.",
                             Ordem = 1,
-                            Titulo = "Estrutura dos documentos"
+                            Titulo = "Estrutura dos metais"
                         },
                         new
                         {
                             Id = 62,
                             CursoId = 6,
-                            Descricao = "Estudo de interpretação de procedimentos no contexto de interpretação de manuais, instruções e registros industriais.",
+                            Descricao = "Estudo de resistência e seleção de materiais no contexto de estrutura, resistência e propriedades dos metais.",
                             Ordem = 2,
-                            Titulo = "Interpretação de procedimentos"
+                            Titulo = "Resistência e seleção de materiais"
                         });
                 });
 

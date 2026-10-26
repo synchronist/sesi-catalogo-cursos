@@ -2,7 +2,7 @@
 
 Aplicação demonstrativa para o teste técnico de Desenvolvedor de Sistemas I. As fases 1 e 2 implementam persistência PostgreSQL, API de consulta e interface React com Landing Page, catálogo e detalhes. Todo conteúdo dos cursos é fictício. Entrega prevista: 26/10/2026 às 08h, horário de São Paulo.
 
-Estado atual (23/10/2026): aplicação publicada em https://sesi-catalogo-cursos.onrender.com, com PostgreSQL Neon e TLS VerifyFull. Repositório: https://github.com/synchronist/sesi-catalogo-cursos. Homologação e ressalvas em [docs/HOMOLOGACAO_PUBLICA.md](docs/HOMOLOGACAO_PUBLICA.md). Revisão funcional e fonte do pacote: 29e997bbf597f84a2f4e8061dbfd36d5a4e8d25c; commits posteriores de finalização acrescentam somente documentação, evidências, scripts de entrega e exclusões Git. Dashboard Render informado pelo usuário mostrou 29e997b como Live, sem verificação automatizada do SHA do backend. O 503 inicial recuperou sem intervenção, mas sua causa permanece não confirmada. Pacote final e relação de publicação descritos em [ENTREGAVEIS.md](ENTREGAVEIS.md). Os registros das fases anteriores abaixo são históricos.
+Revisão de entrega (26/10/2026): catálogo integrado e AVA demonstrativo, com acesso livre às aulas, progresso local, perguntas de revisão e prévia com imagem temporizada. Sem contas, matrícula real, Moodle ou certificados. GitHub: https://github.com/synchronist/sesi-catalogo-cursos. Aplicação: https://sesi-catalogo-cursos.onrender.com. Estado de homologação e publicação em [docs/FECHAMENTO_FINAL.md](docs/FECHAMENTO_FINAL.md); inventário em [ENTREGAVEIS.md](ENTREGAVEIS.md). Os relatos das fases anteriores abaixo são históricos: não descrevem automaticamente a revisão final nem o SHA atual do Render. A ocorrência anterior de health 503 tem causa não confirmada.
 
 ## Tecnologias e arquitetura
 
@@ -18,12 +18,12 @@ Fluxo: React → API HTTP → serviço de consulta → EF Core/Npgsql → Postgr
 ```text
 frontend/
   src/api/                 cliente HTTP e contratos TypeScript
-  src/pages/               Landing Page, catálogo e detalhes
+  src/pages/               Landing Page, catálogo, detalhes e AVA
   src/components.tsx       componentes compartilhados
   src/styles.css           tokens, tipografia oficial e responsividade
   src/catalogQuery.ts      URL e proteção contra respostas obsoletas
   tests/                   testes frontend de URL e concorrência
-  public/assets/oficiais/  somente os 65 arquivos do ZIP fornecido
+  public/assets/oficiais/  materiais fornecidos e seis fotografias recuperadas do Figma oficial
 backend/
   Contracts/               DTOs públicos
   Entities/                Categoria, Curso, Modulo e Aula
@@ -175,7 +175,7 @@ A interface usa Open Sans variável do ZIP, cores institucionais e tokens de tip
 
 O Figma disponibilizou três fluxos: inicial, detalhes e AVA; Landing Page e detalhes foram revisitados antes desta implementação. Não foram localizadas variantes móveis nem telas próprias de busca/filtros/erro/vazio/carregamento. O catálogo e as composições responsivas são adaptações documentadas, não telas extraídas do protótipo.
 
-Não há autenticação, matrícula, reprodução de vídeo, Moodle ou gerenciamento de cursos. O AVA observado não foi implementado. Os tipos TypeScript representam o contrato, sem validação adicional de payload em runtime. Não há certificação formal de conformidade WCAG ou teste com leitor de tela real.
+Não há autenticação, matrícula, reprodução de vídeo, Moodle ou gerenciamento de cursos. O AVA textual foi iniciado na versão local, sem contas ou progresso no servidor; veja docs/AVA.md. A publicação e o ZIP anteriores não foram atualizados nesta rodada. Os tipos TypeScript representam o contrato, sem validação adicional de payload em runtime. Não há certificação formal de conformidade WCAG ou teste com leitor de tela real.
 
 ## Fase 2 — interface e validação
 
@@ -437,3 +437,23 @@ Documentação, evidências públicas e scripts de empacotamento integram a fina
 ZIP existente reconferido por CRC, conteúdo, manifesto e SHA-256, sem recriação: 16.158.146 bytes, hash `d03a9b091008971a4469072e7c7c647b315cf00ee5e50b941849c035c4f22ce9`. Documentação interna é o snapshot da Fase 4, com essa distinção explícita; resultados finais e procedimentos atualizados ficam no repositório. Links públicos GitHub e Render retornaram 200 nesta fase, sem repetir a homologação completa.
 
 GitHub Release **ainda não criado ou publicado**, ZIP não enviado. Proposta e passos exatos em [docs/PROPOSTA_RELEASE.md](docs/PROPOSTA_RELEASE.md). A publicação desse artefato depende de nova autorização; depois restará o envio formal ao SESI. Ressalvas de disponibilidade, uso demonstrativo e imagens oficiais permanecem em [docs/LIMITACOES_ENTREGA.md](docs/LIMITACOES_ENTREGA.md).
+
+## Revisão local dos cursos conforme Figma — 24/10/2026
+
+Após autorização, seed e migrations `20261024192422_AlignFeaturedCoursesWithFigma` e `20261024192600_AlignOfficialCourseImages` alinham os seis títulos, resumos, categorias e fotos oficiais. Módulos/aulas permanecem fictícios, coerentes com os temas. A categoria Linguagens existe, mas fica sem cursos entre esses seis exemplos. As migrations atualizam campos por IDs; revisar qualquer destino existente antes de aplicá-las. Não são executadas no startup.
+
+Validação somente em `catalogo_figma_review` no PostgreSQL local (127.0.0.1:55432): 25 testes backend e 19 frontend aprovados, builds aprovados; API local em 5082 e Vite de revisão em http://127.0.0.1:5175/. A porta 5173 anterior não foi reconfigurada e pode continuar exibindo os dados antigos. Para reproduzir, configure `ConnectionStrings__Catalogo` com host/banco locais e sua senha local, execute `dotnet ef database update --project backend --configuration Release`, inicie a API nessa conexão e defina `API_PROXY_TARGET=http://127.0.0.1:5082` no processo Vite. Nunca reutilize a conexão Neon para esse ensaio.
+
+Não houve migração no Neon, deploy, commit/push ou atualização do ZIP. Produção e pacote final continuam na versão anterior. Evidências e limitações em [docs/CARROSSEL_FIDELIDADE.md](docs/CARROSSEL_FIDELIDADE.md). O build apresentou NU1900 por indisponibilidade da consulta de vulnerabilidades NuGet; a auditoria de dependências não foi atualizada.
+
+Atualização da revisão local: `frontend/.env.development.local` (ignorado pelo Git, sem segredos) aponta o Vite para a API local 5082. A porta http://localhost:5173/ foi conferida no navegador com os seis cursos atualizados; a observação anterior sobre dados antigos nessa porta foi superada. Nenhuma alteração de configuração de produção foi feita.
+
+Atualização de conteúdo de /cursos/1: descrição e dez módulos/trinta tópicos observados no Figma foram alinhados no seed e no banco local por migration 20261024225428_AlignMetalurgiaSyllabusWithFigma. O catálogo local agora tem 20 módulos e 50 aulas no total, mantendo seis cursos/três categorias; os demais cursos não tiveram seus programas alterados. As contagens históricas 12/24 continuam descrevendo a versão publicada anterior. Nenhuma atualização no Neon, Render ou ZIP. Revisão e evidências em docs/DETALHES_FIDELIDADE.md.
+
+### AVA local — versão de revisão
+
+Acesso por Área do aluno ou /ava; aulas em /ava/{id}?aula={chave}. Os seis cursos usam módulos, aulas e descrições reais da API existente. Busca no programa, conclusão reversível e navegação anterior/próxima são funcionais. Progresso salvo somente neste navegador, separado por curso, sem conta de aluno; não há matrícula, vídeo, avaliação, fórum ou certificado. Contrato ProgressRepository permite futura integração autenticada, ainda não implementada. Nenhuma configuração nova ou migration necessária. Evidências, adaptações do Figma e testes em [docs/AVA.md](docs/AVA.md). Esta versão não altera a homologação histórica nem o ZIP anteriormente entregue.
+
+### AVA — navegação livre e conclusão por aula
+
+A navegação é livre entre todas as aulas, pelo menu, URL e anterior/próxima. Cada aula só pode ser concluída depois de chegar ao fim do texto, validar corretamente as perguntas presentes e terminar a simulação de vídeo quando presente. O curso só está concluído após finalizar todas as aulas. Acerto trava as alternativas; Responder novamente reinicia explicitamente a pergunta. Refazer esta aula afeta apenas sua conclusão. Progresso local v2 preserva aulas finalizadas fora de ordem. Sem contas, matrícula, vídeos reais, provas oficiais ou certificação; exemplos não equivalem a um LMS em produção. Detalhes e evidências em [docs/AVA.md](docs/AVA.md).

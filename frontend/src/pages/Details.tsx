@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ApiError, catalogoApi } from "../api/catalogo";
 import {
   Accordion,
@@ -9,11 +10,23 @@ import {
 } from "../components";
 import { Link } from "../navigation";
 import { useResource } from "../useResource";
+import { CourseLearningContent, CourseQuestions } from "../CourseLearningPanels";
 
 export function Details({ id }: { id: string }) {
   const { result, retry } = useResource(`course:${id}`, (signal) =>
     catalogoApi.detalhar(Number(id), signal),
   );
+  const [footerVisible, setFooterVisible] = useState(false);
+  useEffect(() => {
+    if (result.state !== "success") return;
+    const footer = document.querySelector(".site-footer");
+    if (!footer) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setFooterVisible(entry.isIntersecting);
+    });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [result.state, id]);
   if (result.state === "loading")
     return (
       <div className="container section">
@@ -56,55 +69,36 @@ export function Details({ id }: { id: string }) {
             <span aria-hidden="true">/</span>
             <Link href="/cursos">Cursos</Link>
             <span aria-hidden="true">/</span>
-            <span>Detalhes</span>
+            <span aria-current="page">{course.nomeCompleto}</span>
           </nav>
           <div className="detail-grid">
             <div>
               <span
                 className={`category-tag category-${course.categoria.codigo}`}
               >
+                <img src={asset(`icon-${course.categoria.codigo === "ciencias-da-natureza" ? "ciencias-natureza" : course.categoria.codigo}-20px.svg`)} alt="" width="16" height="16" />
                 {course.categoria.nome}
               </span>
               <h1>{course.nomeCompleto}</h1>
-              <dl className="detail-facts">
-                <div>
-                  <dt>Modalidade</dt>
-                  <dd>{course.modalidade.nome}</dd>
-                </div>
-                <div>
-                  <dt>Carga horária</dt>
-                  <dd>{course.cargaHoraria} horas</dd>
-                </div>
-                <div>
-                  <dt>Status</dt>
-                  <dd>
-                    <span className={`status status-${course.status.codigo}`}>
-                      {course.status.nome}
-                    </span>
-                  </dd>
-                </div>
+              <div className="detail-highlights">
                 {date && (
-                  <div>
-                    <dt>Disponibilização</dt>
-                    <dd>{date}</dd>
-                  </div>
+                  <p><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 2v6m8-6v6M4 11h16"/></svg>Início do curso: <strong>{date}</strong></p>
                 )}
-              </dl>
-              <a href="#sobre-curso" className="button button-dark">
-                Conhecer o conteúdo <span aria-hidden="true">↓</span>
-              </a>
-              <p className="small muted">
-                Catálogo demonstrativo · matrícula indisponível
-              </p>
+                <p title="Certificação ilustrativa do protótipo; não emitida nesta demonstração"><img src={asset("01-certificacao-bege.svg")} alt="" width="20" height="20" />Certificação: <strong>SESI</strong></p>
+              </div>
+              <Link className="button button-dark detail-enroll" href={`/ava/${course.id}?aula=introducao`}>
+                Acessar curso <img src={asset("arrow-navigation-1.svg")} alt="" width="24" height="24" />
+              </Link>
             </div>
-            <figure className="detail-photo">
+            <figure className="detail-photo cta-photo">
               <img
                 src={asset("video-thumb.png")}
                 alt="Profissionais com equipamentos de segurança em uma indústria"
                 width="640"
                 height="360"
               />
-              <figcaption>
+              <button className="cta-play" type="button" disabled aria-label="Vídeo demonstrativo indisponível" title="Vídeo não disponível nesta demonstração"><svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M8 4 20 12 8 20Z" fill="currentColor" /></svg></button>
+              <figcaption className="sr-only">
                 Imagem institucional de apresentação · sem vídeo disponível
               </figcaption>
             </figure>
@@ -127,50 +121,29 @@ export function Details({ id }: { id: string }) {
           <div>
             <h2 id="sobre-curso-title">Sobre o curso</h2>
             <p>{detail.descricao}</p>
-            <h3 className="audience-title">Para quem é este curso?</h3>
-            <p>{detail.publicoAlvo}</p>
           </div>
           <div>
-            <Accordion title="Módulos e aulas">
+            <Accordion title="Módulos">
               {detail.modulos.map((modulo) => (
                 <section className="module" key={modulo.id}>
                   <h3>
                     {modulo.ordem}. {modulo.titulo}
                   </h3>
-                  <p>{modulo.descricao}</p>
-                  <ol className="lesson-list">
+                  <ul className="lesson-list">
                     {modulo.aulas.map((aula) => (
                       <li key={aula.id}>
-                        <strong>{aula.titulo}</strong>
-                        <p>{aula.descricao}</p>
+                        {aula.titulo}
                       </li>
                     ))}
-                  </ol>
+                  </ul>
                 </section>
               ))}
             </Accordion>
-            <Accordion title="Modalidade e público-alvo">
-              <p>
-                <strong>Modalidade:</strong> {course.modalidade.nome}.
-              </p>
-              <p>
-                <strong>Carga horária:</strong> {course.cargaHoraria} horas.
-              </p>
-              <p>
-                <strong>Público-alvo:</strong> {detail.publicoAlvo}.
-              </p>
+            <Accordion title="Aulas online e avaliações">
+              <CourseLearningContent />
             </Accordion>
             <Accordion title="Dúvidas frequentes">
-              <h3>Posso me matricular por aqui?</h3>
-              <p>
-                Não. Esta é uma demonstração de catálogo. Não há matrícula,
-                pagamento ou acesso às aulas.
-              </p>
-              <h3>Os cursos e datas são reais?</h3>
-              <p>
-                Não. Os dados são fictícios e foram criados exclusivamente para
-                este projeto.
-              </p>
+              <CourseQuestions online={course.modalidade.codigo === "online"} />
             </Accordion>
           </div>
         </div>
@@ -178,28 +151,24 @@ export function Details({ id }: { id: string }) {
       <Testimonials beige />
       <section className="detail-end section">
         <div className="container">
-          <p className="eyebrow">Continue explorando</p>
-          <h2>
-            Seu próximo conhecimento
-            <br />
-            começa com uma escolha.
-          </h2>
-          <Link href="/cursos" className="button button-white">
-            Ver todos os cursos <span aria-hidden="true">→</span>
-          </Link>
+          <p className="eyebrow">Precisa de ajuda para decidir?</p>
+          <h2>Fale com a gente</h2>
+          <button className="button button-white" disabled title="Contato não disponível nesta demonstração">
+            Mandar uma mensagem <img src={asset("arrow-navigation-1.svg")} alt="" width="24" height="24" />
+          </button>
         </div>
       </section>
       <aside
         className="course-sticky"
-        aria-label="Disponibilidade de matrícula"
+        hidden={footerVisible}
+        aria-label="Acesso ao curso"
       >
         <div>
-          <strong>{course.nomeBreve}</strong>
-          <span>Projeto demonstrativo · sem matrícula</span>
+          <strong>{course.nomeCompleto}</strong>
         </div>
-        <button className="button button-white" disabled>
-          Matrícula indisponível
-        </button>
+        <Link className="button button-white" href={`/ava/${course.id}?aula=introducao`}>
+          Acessar curso <img src={asset("arrow-navigation-1.svg")} alt="" width="24" height="24" />
+        </Link>
       </aside>
     </>
   );

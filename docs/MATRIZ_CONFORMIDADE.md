@@ -93,3 +93,7 @@ Fonte: `Instruções_Atividade prática_519_2026_DEV.pdf`, páginas 1–3, confe
 | Diferenças do Figma justificadas | C | AUDITORIA_VISUAL.md, README e LIMITACOES_ENTREGA.md. |
 
 Nenhuma funcionalidade obrigatória ausente foi identificada. Fidelidade e acessibilidade permanecem parciais nos limites declarados; opcionais ausentes não são apresentados como concluídos. A Fase 5 autoriza a finalização documental em main, sem alterar a implementação. Release/upload do ZIP e envio formal ao SESI ainda não realizados; proposta em PROPOSTA_RELEASE.md.
+
+## Revisão final de 26/10/2026
+
+Esta matriz histórica deve ser lida com FECHAMENTO_FINAL.md e ENTREGAVEIS.md. A implementação final acrescenta refinamentos de fidelidade, seis fotos do Figma e AVA demonstrativo. Moodle continua opcional e não integrado. Seed final 3 categorias/6 cursos/20 módulos/50 aulas; pacote final em entregaveis/final-2026-10-26/, preservando o anterior. O SHA exato consta em PUBLICACAO.json, evitando referência circular ao hash do próprio documento. Validação executada e estado efetivo do deploy estão no fechamento final; envio à comissão permanece ação do candidato.

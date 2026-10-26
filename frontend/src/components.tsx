@@ -4,6 +4,8 @@ import type { CursoResumo } from "./api/catalogo";
 import { ApiError } from "./api/catalogo";
 import { Link } from "./navigation";
 import { scrollBounds } from "./scrollBounds";
+import { courseSectionHref } from "./courseAnchor";
+import { featuredImage } from "./featuredPresentation";
 
 export const asset = (name: string) => `/assets/oficiais/${name}`;
 export function Arrow() {
@@ -73,8 +75,7 @@ export function Header({
             Início
           </Link>
           <Link
-            href="/cursos"
-            aria-current={pathname.startsWith("/cursos") ? "page" : undefined}
+            href={courseSectionHref}
             onClick={() => setOpen(false)}
           >
             Cursos
@@ -82,13 +83,13 @@ export function Header({
           <Link href="/#sobre" onClick={() => setOpen(false)}>
             Sobre
           </Link>
-          <button
+          <Link
             className="button button-outline student-button"
-            disabled
-            title="Área do aluno não disponível nesta demonstração"
+            href="/ava"
+            onClick={() => setOpen(false)}
           >
-            Área do aluno <span className="demo-label">Em demonstração</span>
-          </button>
+            Área do aluno
+          </Link>
         </nav>
       </div>
     </header>
@@ -109,31 +110,30 @@ export function Footer() {
                 height="19"
               />
             </Link>
-            <p>
-              Conhecimento que transforma
-              <br />a indústria e a sua carreira.
+            <p title="Contato e endereço ilustrativos do protótipo">
+              contato@sesindustria.com.br
+              <br />Av. Paulista, 1313
             </p>
           </div>
           <div>
             <h2>Navegação</h2>
             <Link href="/">Início</Link>
+            <span className="footer-placeholder" aria-disabled="true" title="Não disponível nesta demonstração">Certificação</span>
             <Link href="/cursos">Cursos</Link>
             <Link href="/#sobre">Sobre</Link>
+            <span className="footer-placeholder" aria-disabled="true" title="Não disponível nesta demonstração">Blog</span>
           </div>
           <div>
-            <h2>Explore o catálogo</h2>
-            <Link href="/cursos?categoria=matematica">Matemática</Link>
-            <Link href="/cursos?categoria=ciencias-da-natureza">
-              Ciências da Natureza
-            </Link>
-            <Link href="/cursos?categoria=linguagens">Linguagens</Link>
+            <h2>Cursos populares</h2>
+            {["Cultura Organizacional", "Ferramentas Google para Produtividade", "Excel Básico ao Avançado", "Trabalho em Equipe e Colaboração", "Gestão do Tempo e Produtividade", "Comunicação Assertiva", "Inteligência Emocional no Trabalho"].map(name => (
+              <span key={name} className="footer-placeholder" aria-disabled="true" title="Curso ilustrativo do Figma, não disponível no catálogo">{name}</span>
+            ))}
           </div>
           <div>
-            <h2>Sobre esta experiência</h2>
-            <p>Projeto demonstrativo para o teste técnico SESI-SP.</p>
-            <p>
-              Cursos e depoimentos fictícios. Sem matrícula ou área do aluno.
-            </p>
+            <h2>Suporte</h2>
+            {["Termos de Uso", "Política de Privacidade", "Trabalhe Conosco", "Fale Conosco", "Central de Ajuda"].map(name => (
+              <span key={name} className="footer-placeholder" aria-disabled="true" title="Não disponível nesta demonstração">{name}</span>
+            ))}
           </div>
         </div>
         <div className="footer-bottom">
@@ -144,7 +144,7 @@ export function Footer() {
               width="57"
               height="19"
             />{" "}
-            Catálogo educacional · Demonstração
+            Todos os direitos reservados.
           </p>
           <div
             className="social-marks"
@@ -182,11 +182,12 @@ export function CourseCard({
   return (
     <article
       className={`course-card course-crop-${curso.id % 3} ${featured ? "featured-card" : ""}`}
+      data-course-id={featured ? curso.id : undefined}
     >
       <Link href={`/cursos/${curso.id}`} className="course-card-link">
         <div className="course-image">
           <img
-            src={curso.imagem}
+            src={featured ? featuredImage(curso) : curso.imagem}
             alt=""
             loading="lazy"
             width="640"
@@ -274,22 +275,22 @@ const benefits = [
   {
     icon: "01-certificacao",
     title: "Certificação SESI",
-    text: "Conhecimento e qualificação para os desafios do mercado industrial.",
+    text: "Cursos com a melhor certificação do mercado industrial reconhecidos pelo SESI.",
   },
   {
     icon: "02-professores",
     title: "Professores especialistas",
-    text: "Aprendizado conectado à experiência e à prática profissional.",
+    text: "Contamos com professores reconhecidos por sua excelência no mercado.",
   },
   {
     icon: "03-suporte",
     title: "Suporte contínuo",
-    text: "Acompanhamento para uma jornada de aprendizagem com autonomia.",
+    text: "Você não está sozinho! Acompanhamento online durante todo o curso.",
   },
   {
     icon: "04-flexibilidade",
     title: "Flexibilidade",
-    text: "Diferentes modalidades para conhecer e planejar seus estudos.",
+    text: "Turmas presenciais e online com horários que se adaptam à sua rotina.",
   },
 ];
 export function Benefits({ detail = false }: { detail?: boolean }) {
@@ -309,10 +310,6 @@ export function Benefits({ detail = false }: { detail?: boolean }) {
           </div>
         ))}
       </div>
-      <p className="institutional-note">
-        Apresentação institucional ilustrativa. Este projeto não oferece aulas,
-        suporte ou certificados.
-      </p>
     </div>
   );
 }
@@ -373,13 +370,35 @@ export function Testimonials({ beige = false }: { beige?: boolean }) {
       text: "Finalizar o curso foi uma experiência motivadora. As aulas foram bem preparadas e o cronograma foi ideal para o aprendizado.",
     },
   ];
+  if (beige) {
+    items[3].text = "Finalizar o curso foi uma experiência motivadora. As aulas foram muito bem preparadas e o cronograma foi ideal para o aprendizado.";
+    items.push({
+      name: "Gabriel Santos",
+      role: "Analista na Empresa X",
+      text: "A conclusão do curso foi uma etapa muito gratificante. As aulas eram bem organizadas e o horário foi pensado para facilitar nosso aprendizado.",
+    });
+  }
+  const move = (direction: -1 | 1) => {
+    const element = rail.current;
+    if (!element) return;
+    const maximum = element.scrollWidth - element.clientWidth;
+    const target = beige
+      ? direction === 1
+        ? bounds.next ? maximum : 0
+        : bounds.previous ? 0 : maximum
+      : element.scrollLeft + direction * 320;
+    element.scrollTo({
+      left: target,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  };
   return (
     <section
       className={`testimonials section ${beige ? "testimonials-beige" : ""}`}
       aria-labelledby="depoimentos-title"
     >
       <div className="container">
-        <p className="eyebrow">Depoimentos ilustrativos</p>
+        <p className="eyebrow">Depoimentos</p>
         <h2 id="depoimentos-title">Quem fez recomenda</h2>
         <div
           className="testimonial-rail"
@@ -401,21 +420,21 @@ export function Testimonials({ beige = false }: { beige?: boolean }) {
           ))}
         </div>
         <div className="rail-controls">
-          <span>Conteúdo fictício do protótipo</span>
+          <span></span>
           <div>
             <button
               aria-label="Depoimentos anteriores"
-              disabled={!bounds.previous}
-              onClick={() => rail.current?.scrollBy({ left: -320 })}
+              disabled={beige ? !bounds.previous && !bounds.next : !bounds.previous}
+              onClick={() => move(-1)}
             >
-              ←
+              <img src={asset("arrow-navigation.svg")} alt="" width="48" height="48" />
             </button>
             <button
               aria-label="Próximos depoimentos"
-              disabled={!bounds.next}
-              onClick={() => rail.current?.scrollBy({ left: 320 })}
+              disabled={beige ? !bounds.previous && !bounds.next : !bounds.next}
+              onClick={() => move(1)}
             >
-              →
+              <img src={asset("arrow-navigation-1.svg")} alt="" width="48" height="48" />
             </button>
           </div>
         </div>
@@ -431,14 +450,14 @@ export function CallToAction() {
           <h2>
             Pronto para{" "}
             <br />
-            dar o próximo passo?
+            transformar sua carreira?
           </h2>
           <p>
-            Explore conhecimentos que conectam educação, tecnologia e indústria.
-            Encontre um curso para a sua trajetória.
+            Junte-se a milhares de profissionais que já estão transformando a
+            indústria através dos nossos cursos. Invista no seu futuro hoje mesmo!
           </p>
-          <Link className="button button-white" href="/cursos">
-            Conhecer cursos <Arrow />
+          <Link className="button button-white" href="/cursos" aria-label="Matricule-se — consultar catálogo demonstrativo, sem matrícula disponível">
+            Matricule-se <img src={asset("arrow-navigation-1.svg")} alt="" width="24" height="24" />
           </Link>
         </div>
         <figure className="cta-photo">
@@ -449,7 +468,10 @@ export function CallToAction() {
             width="640"
             height="360"
           />
-          <figcaption>
+          <button className="cta-play" type="button" disabled aria-label="Vídeo demonstrativo indisponível" title="Imagem do protótipo: vídeo não disponível nesta demonstração">
+            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M8 4 20 12 8 20Z" fill="currentColor" /></svg>
+          </button>
+          <figcaption className="sr-only">
             Imagem institucional · sem reprodução de vídeo
           </figcaption>
         </figure>

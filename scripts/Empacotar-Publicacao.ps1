@@ -1,4 +1,4 @@
-param([string]$OutputDirectory = 'entregaveis')
+param([string]$OutputDirectory = 'entregaveis', [switch]$ReuseFrontendBuild)
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $root = Split-Path $PSScriptRoot -Parent
@@ -8,7 +8,11 @@ if (!$output.StartsWith($root + [IO.Path]::DirectorySeparatorChar, [StringCompar
     throw 'A saída deve permanecer dentro do workspace.'
 }
 if (Test-Path -LiteralPath $output) { throw 'Saída já existe. Escolha outra pasta para preservar artefatos anteriores.' }
-if (@(Get-ChildItem frontend -Force -File | Where-Object { $_.Name -like '.env*' -and $_.Name -ne '.env.example' }).Count) {
+$localEnvFiles = @(Get-ChildItem frontend -Force -File | Where-Object { $_.Name -like '.env*' -and $_.Name -ne '.env.example' })
+$unsafeEnvFiles = @($localEnvFiles | Where-Object {
+    $_.Name -ne '.env.development.local' -or (Get-Content -LiteralPath $_.FullName -Raw).Trim() -notmatch '^API_PROXY_TARGET=http://127\.0\.0\.1:\d+$'
+})
+if ($unsafeEnvFiles.Count) {
     throw 'Revise os arquivos .env do frontend antes de empacotar.'
 }
 $package = Join-Path $output 'sesi-catalogo-publicacao-linux-x64'
@@ -17,8 +21,12 @@ New-Item -ItemType Directory -Path $app -Force | Out-Null
 $previousApiBase = $env:VITE_API_BASE_URL
 try {
     $env:VITE_API_BASE_URL = ''
-    npm --prefix frontend run build
-    if ($LASTEXITCODE -ne 0) { throw 'Build frontend falhou.' }
+    if ($ReuseFrontendBuild) {
+        if (!(Test-Path frontend/dist/index.html)) { throw 'Build frontend previamente validado ausente.' }
+    } else {
+        npm --prefix frontend run build
+        if ($LASTEXITCODE -ne 0) { throw 'Build frontend falhou.' }
+    }
 } finally { $env:VITE_API_BASE_URL = $previousApiBase }
 dotnet publish backend/Sesi.Catalogo.Api.csproj -c Release -r linux-x64 --self-contained false -p:UseAppHost=false -p:ProductionImage=true -p:DebugType=None -p:DebugSymbols=false -o $app
 if ($LASTEXITCODE -ne 0) { throw 'Publish backend falhou.' }
@@ -32,7 +40,7 @@ $sha = (git rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0) { throw 'Não foi possível identificar a revisão fonte.' }
 @{
     sourceCommit = $sha
-    note = 'Artefatos gerados localmente; documentação pode incluir alterações ainda não commitadas. Não atesta SHA do backend Render.'
+    note = 'Artefatos da revisão fonte identificada; não atesta automaticamente SHA do backend Render. Evidência do deploy é documental.'
     target = 'linux-x64; glibc; framework-dependent; ASP.NET Core Runtime 10'
     generatedUtc = [DateTime]::UtcNow.ToString('o')
     dotnetSdk = (dotnet --version)

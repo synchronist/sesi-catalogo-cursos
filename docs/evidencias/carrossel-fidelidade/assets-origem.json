@@ -1,0 +1,44 @@
+[
+  {
+    "file": "frontend/public/assets/oficiais/figma/medicao-metalurgia.png",
+    "course_id": 1,
+    "source": "https://s3-alpha-sig.figma.com/img/e3fb/1168/232329cda95c4431fb8edfd5397ca5b0",
+    "sha256": "bcdedcaea568fc90f9e9c002308db014da1c7f0428bf991a96b647ca17449b10",
+    "bytes": 357504
+  },
+  {
+    "file": "frontend/public/assets/oficiais/figma/industria-textil.jpg",
+    "course_id": 2,
+    "source": "https://s3-alpha-sig.figma.com/img/e443/5097/1410668c43e145805e4ab0c07899ccb0",
+    "sha256": "3f03669c21339226ac838b28c489e93a5b83dcc8fa019aed0deea4bf450f304c",
+    "bytes": 225913
+  },
+  {
+    "file": "frontend/public/assets/oficiais/figma/soldagem-industrial.jpg",
+    "course_id": 4,
+    "source": "https://s3-alpha-sig.figma.com/img/5217/003b/02df749fdd0a66259d6e8639d0e40af5",
+    "sha256": "c0065c572e207e0b3ea809290552ab8d33d83dbe82536863787572b6352c6605",
+    "bytes": 251667
+  },
+  {
+    "file": "frontend/public/assets/oficiais/figma/laboratorio-quimico.jpg",
+    "course_id": 5,
+    "source": "https://s3-alpha-sig.figma.com/img/c1f7/380c/45a40e2b46c6393aa46110fc9bcbec08",
+    "sha256": "89af74052d01c155aaf2b8fa1d4660116f7e233cff271339a9c345c6c2ed0664",
+    "bytes": 208347
+  },
+  {
+    "file": "frontend/public/assets/oficiais/figma/controle-producao.jpg",
+    "course_id": 3,
+    "source": "https://s3-alpha-sig.figma.com/img/8086/8c44/86e2957c829ed9d69ce7fdb7c97cbcdd",
+    "sha256": "2aea464d40c45ce6ca3c40baaf050cf9aa2e9a4c46ddd1e7ab59411afb4ec01a",
+    "bytes": 202625
+  },
+  {
+    "file": "frontend/public/assets/oficiais/figma/equipamento-industrial.jpg",
+    "course_id": 6,
+    "source": "https://s3-alpha-sig.figma.com/img/c50d/087b/6d9b8c96359740504393aac0fac1d35e",
+    "sha256": "3cb5cb674518b543f9fb7d0128ca7a88c77087d35c99dbe160acc837876b7e16",
+    "bytes": 84651
+  }
+]
